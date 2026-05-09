@@ -1,0 +1,49 @@
+name: Validate Build
+on: [push, pull_request]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Build site
+        run: node build.js
+      - name: Validate sitemap
+        run: |
+          URL_COUNT=$(grep -c '<url>' dist/sitemap.xml)
+          echo "Sitemap contains $URL_COUNT URLs"
+          if [ "$URL_COUNT" -lt 10 ]; then
+            echo "ERROR: Too few URLs in sitemap"
+            exit 1
+          fi
+      - name: Check generated pages
+        run: |
+          CALC_COUNT=$(ls dist/calculator/*/index.html 2>/dev/null | wc -l)
+          CONV_COUNT=$(ls dist/convert/*/index.html 2>/dev/null | wc -l)
+          CAT_COUNT=$(ls dist/category/*/index.html 2>/dev/null | wc -l)
+          echo "Calculators: $CALC_COUNT"
+          echo "Converters: $CONV_COUNT"
+          echo "Categories: $CAT_COUNT"
+          if [ "$CALC_COUNT" -lt 1 ]; then exit 1; fi
+          if [ "$CONV_COUNT" -lt 1 ]; then exit 1; fi
+      - name: Validate HTML structure
+        run: |
+          for f in dist/index.html dist/calculator/emi/index.html; do
+            if ! grep -q '<title>' "$f"; then
+              echo "ERROR: Missing <title> in $f"
+              exit 1
+            fi
+            if ! grep -q 'schema.org' "$f"; then
+              echo "ERROR: Missing schema.org in $f"
+              exit 1
+            fi
+          done
+          echo "HTML structure OK"
+      - name: Validate JSON files
+        run: |
+          for f in data/*.json; do
+            node -e "JSON.parse(require('fs').readFileSync('$f','utf8'))" || exit 1
+            echo "Valid: $f"
+          done

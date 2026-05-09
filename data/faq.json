@@ -1,0 +1,40 @@
+{
+  "emi": [
+    { "question": "What is EMI?", "answer": "EMI (Equated Monthly Installment) is a fixed payment amount made by a borrower to a lender at a specified date each month. It includes both principal and interest components." },
+    { "question": "How is EMI calculated?", "answer": "EMI is calculated using the formula: EMI = P × r × (1+r)^n / ((1+r)^n - 1), where P is the loan amount, r is the monthly interest rate, and n is the number of months." },
+    { "question": "Does a longer tenure reduce EMI?", "answer": "Yes, a longer tenure reduces the monthly EMI amount, but increases the total interest paid over the life of the loan." }
+  ],
+  "sip": [
+    { "question": "What is SIP?", "answer": "SIP (Systematic Investment Plan) is a method of investing a fixed amount regularly in mutual funds. It helps in averaging the purchase cost and building wealth over time." },
+    { "question": "How are SIP returns calculated?", "answer": "SIP returns are calculated using the future value of annuity formula, considering the monthly investment amount, expected rate of return, and investment duration." },
+    { "question": "Is SIP better than lump sum investment?", "answer": "SIP helps in rupee cost averaging and reduces the risk of market timing. It is generally recommended for long-term wealth creation, especially for new investors." }
+  ],
+  "compound-interest": [
+    { "question": "What is compound interest?", "answer": "Compound interest is interest calculated on both the initial principal and the accumulated interest from previous periods. It makes your money grow faster than simple interest." },
+    { "question": "How does compounding frequency affect returns?", "answer": "More frequent compounding (monthly vs annually) results in slightly higher returns because interest is calculated and added to the principal more often." }
+  ],
+  "bmi": [
+    { "question": "What is a healthy BMI range?", "answer": "A BMI between 18.5 and 24.9 is considered normal weight. Below 18.5 is underweight, 25-29.9 is overweight, and 30 or above is obese." },
+    { "question": "Is BMI accurate for everyone?", "answer": "BMI is a useful screening tool but doesn't account for muscle mass, bone density, or body composition. Athletes may have a high BMI due to muscle mass despite being healthy." }
+  ],
+  "percentage": [
+    { "question": "How do I calculate percentage of a number?", "answer": "To find X% of Y, multiply Y by X and divide by 100. For example, 15% of 200 = 200 × 15 / 100 = 30." },
+    { "question": "How do I calculate percentage change?", "answer": "Percentage change = ((New Value - Old Value) / Old Value) × 100. A positive result means increase, negative means decrease." }
+  ],
+  "age": [
+    { "question": "How is exact age calculated?", "answer": "Exact age is calculated by finding the difference between your date of birth and today's date, accounting for varying month lengths and leap years." }
+  ],
+  "gst": [
+    { "question": "What is GST?", "answer": "GST (Goods and Services Tax) is an indirect tax levied on the supply of goods and services. Common rates in India are 5%, 12%, 18%, and 28%." },
+    { "question": "What is the difference between inclusive and exclusive GST?", "answer": "Exclusive GST means the tax is added on top of the price. Inclusive GST means the price already includes the tax, and you need to extract the base amount." }
+  ],
+  "tip": [
+    { "question": "How much should I tip?", "answer": "Tipping customs vary by country. In the US, 15-20% is standard for restaurants. In many other countries, tipping is optional or included in the bill." }
+  ],
+  "discount": [
+    { "question": "How do I calculate discount?", "answer": "Discount amount = Original Price × Discount% / 100. Final price = Original Price - Discount Amount." }
+  ],
+  "loan": [
+    { "question": "What factors affect loan interest?", "answer": "The total interest paid depends on the loan amount, interest rate, and loan term. A higher rate or longer term increases total interest, while a larger down payment reduces it." }
+  ]
+}

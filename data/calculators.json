@@ -1,0 +1,224 @@
+[
+  {
+    "id": "emi",
+    "title": "EMI Calculator",
+    "description": "Calculate your Equated Monthly Installment for home loans, car loans, and personal loans. See total interest payable and payment breakdown.",
+    "category": "financial",
+    "keywords": ["emi calculator", "loan emi", "monthly installment calculator"],
+    "icon": "financial",
+    "inputs": [
+      { "id": "principal", "label": "Loan Amount", "type": "currency", "default": 1000000, "min": 1, "step": 1000 },
+      { "id": "rate", "label": "Interest Rate (% per year)", "type": "percent", "default": 8.5, "min": 0.1, "max": 50, "step": 0.1 },
+      { "id": "tenure", "label": "Loan Tenure (months)", "type": "number", "default": 60, "min": 1, "max": 360, "step": 1 }
+    ],
+    "outputs": [
+      { "id": "emi", "label": "Monthly EMI", "format": "currency" },
+      { "id": "totalInterest", "label": "Total Interest", "format": "currency" },
+      { "id": "totalPayment", "label": "Total Payment", "format": "currency" }
+    ],
+    "hasChart": true,
+    "chartType": "pie",
+    "chartConfig": { "labels": ["Principal", "Interest"], "dataKeys": ["principal", "totalInterest"] },
+    "explanation": "<h3>How EMI is Calculated</h3><p>EMI (Equated Monthly Installment) is calculated using the formula:</p><p class=\"formula\">EMI = P × r × (1 + r)<sup>n</sup> / ((1 + r)<sup>n</sup> − 1)</p><p>Where <strong>P</strong> is the loan amount, <strong>r</strong> is the monthly interest rate (annual rate / 12 / 100), and <strong>n</strong> is the tenure in months.</p>",
+    "relatedCalculators": ["sip", "compound-interest", "loan"],
+    "priority": 0.9
+  },
+  {
+    "id": "sip",
+    "title": "SIP Calculator",
+    "description": "Calculate returns on your Systematic Investment Plan. See how monthly investments grow over time with compound interest.",
+    "category": "financial",
+    "keywords": ["sip calculator", "mutual fund sip", "investment calculator"],
+    "icon": "financial",
+    "inputs": [
+      { "id": "monthlyInvestment", "label": "Monthly Investment", "type": "currency", "default": 5000, "min": 100, "step": 500 },
+      { "id": "expectedReturn", "label": "Expected Return (% per year)", "type": "percent", "default": 12, "min": 1, "max": 50, "step": 0.5 },
+      { "id": "years", "label": "Investment Period (years)", "type": "number", "default": 10, "min": 1, "max": 50, "step": 1 }
+    ],
+    "outputs": [
+      { "id": "futureValue", "label": "Future Value", "format": "currency" },
+      { "id": "totalInvested", "label": "Total Invested", "format": "currency" },
+      { "id": "wealthGained", "label": "Wealth Gained", "format": "currency" }
+    ],
+    "hasChart": true,
+    "chartType": "pie",
+    "chartConfig": { "labels": ["Invested", "Returns"], "dataKeys": ["totalInvested", "wealthGained"] },
+    "explanation": "<h3>How SIP Returns are Calculated</h3><p>SIP returns use the future value of an annuity formula:</p><p class=\"formula\">FV = P × [((1 + r)<sup>n</sup> − 1) / r] × (1 + r)</p><p>Where <strong>P</strong> is the monthly investment, <strong>r</strong> is the monthly rate of return, and <strong>n</strong> is the total number of months.</p>",
+    "relatedCalculators": ["emi", "compound-interest", "loan"],
+    "priority": 0.9
+  },
+  {
+    "id": "compound-interest",
+    "title": "Compound Interest Calculator",
+    "description": "Calculate compound interest on your savings or investments. Compare different compounding frequencies and see growth over time.",
+    "category": "financial",
+    "keywords": ["compound interest", "interest calculator", "savings calculator"],
+    "icon": "financial",
+    "inputs": [
+      { "id": "principal", "label": "Principal Amount", "type": "currency", "default": 100000, "min": 1, "step": 1000 },
+      { "id": "rate", "label": "Annual Interest Rate (%)", "type": "percent", "default": 7, "min": 0.1, "max": 100, "step": 0.1 },
+      { "id": "time", "label": "Time Period (years)", "type": "number", "default": 5, "min": 1, "max": 50, "step": 1 },
+      { "id": "frequency", "label": "Compounding Frequency", "type": "number", "default": 12, "min": 1, "max": 365, "step": 1 }
+    ],
+    "outputs": [
+      { "id": "finalAmount", "label": "Final Amount", "format": "currency" },
+      { "id": "interestEarned", "label": "Interest Earned", "format": "currency" }
+    ],
+    "hasChart": true,
+    "chartType": "pie",
+    "chartConfig": { "labels": ["Principal", "Interest"], "dataKeys": ["principal", "interestEarned"] },
+    "explanation": "<h3>Compound Interest Formula</h3><p class=\"formula\">A = P × (1 + r/n)<sup>n×t</sup></p><p>Where <strong>P</strong> is the principal, <strong>r</strong> is the annual interest rate, <strong>n</strong> is the compounding frequency per year, and <strong>t</strong> is the time in years.</p>",
+    "relatedCalculators": ["emi", "sip", "loan"],
+    "priority": 0.8
+  },
+  {
+    "id": "loan",
+    "title": "Loan Calculator",
+    "description": "Calculate monthly payments, total interest, and total cost for any loan. Compare different loan terms and interest rates.",
+    "category": "financial",
+    "keywords": ["loan calculator", "loan payment", "loan interest"],
+    "icon": "financial",
+    "inputs": [
+      { "id": "amount", "label": "Loan Amount", "type": "currency", "default": 500000, "min": 1, "step": 1000 },
+      { "id": "rate", "label": "Annual Interest Rate (%)", "type": "percent", "default": 10, "min": 0.1, "max": 50, "step": 0.1 },
+      { "id": "term", "label": "Loan Term (years)", "type": "number", "default": 5, "min": 1, "max": 30, "step": 1 }
+    ],
+    "outputs": [
+      { "id": "monthlyPayment", "label": "Monthly Payment", "format": "currency" },
+      { "id": "totalInterest", "label": "Total Interest", "format": "currency" },
+      { "id": "totalCost", "label": "Total Cost", "format": "currency" }
+    ],
+    "hasChart": true,
+    "chartType": "pie",
+    "chartConfig": { "labels": ["Principal", "Interest"], "dataKeys": ["amount", "totalInterest"] },
+    "explanation": "<h3>Loan Payment Formula</h3><p>The monthly payment is calculated the same way as EMI:</p><p class=\"formula\">Payment = P × r × (1 + r)<sup>n</sup> / ((1 + r)<sup>n</sup> − 1)</p>",
+    "relatedCalculators": ["emi", "compound-interest", "sip"],
+    "priority": 0.8
+  },
+  {
+    "id": "percentage",
+    "title": "Percentage Calculator",
+    "description": "Calculate percentages easily — find X% of a number, what percentage one number is of another, or percentage change between two values.",
+    "category": "math",
+    "keywords": ["percentage calculator", "percent of", "percentage change"],
+    "icon": "math",
+    "inputs": [
+      { "id": "value1", "label": "Value 1", "type": "number", "default": 200, "step": "any" },
+      { "id": "value2", "label": "Value 2 (or Percentage)", "type": "number", "default": 15, "step": "any" }
+    ],
+    "outputs": [
+      { "id": "percentOf", "label": "Value2% of Value1", "format": "decimal" },
+      { "id": "whatPercent", "label": "Value1 is what % of Value2", "format": "decimal" },
+      { "id": "percentChange", "label": "% Change (Value1 → Value2)", "format": "decimal" }
+    ],
+    "hasChart": false,
+    "explanation": "<h3>Percentage Formulas</h3><p class=\"formula\">X% of Y = Y × X / 100</p><p class=\"formula\">X is what % of Y = (X / Y) × 100</p><p class=\"formula\">% Change = ((New − Old) / Old) × 100</p>",
+    "relatedCalculators": ["discount", "gst", "tip"],
+    "priority": 0.9
+  },
+  {
+    "id": "bmi",
+    "title": "BMI Calculator",
+    "description": "Calculate your Body Mass Index (BMI) and find out if you are underweight, normal weight, overweight, or obese.",
+    "category": "health",
+    "keywords": ["bmi calculator", "body mass index", "weight calculator"],
+    "icon": "health",
+    "inputs": [
+      { "id": "weight", "label": "Weight (kg)", "type": "number", "default": 70, "min": 1, "max": 500, "step": 0.1 },
+      { "id": "height", "label": "Height (cm)", "type": "number", "default": 175, "min": 50, "max": 300, "step": 0.1 }
+    ],
+    "outputs": [
+      { "id": "bmi", "label": "Your BMI", "format": "decimal" },
+      { "id": "category", "label": "Category", "format": "text" },
+      { "id": "healthyRange", "label": "Healthy Weight Range", "format": "text" }
+    ],
+    "hasChart": false,
+    "explanation": "<h3>BMI Formula</h3><p class=\"formula\">BMI = weight (kg) / height (m)²</p><p><strong>Categories:</strong> Underweight: &lt;18.5 | Normal: 18.5–24.9 | Overweight: 25–29.9 | Obese: ≥30</p>",
+    "relatedCalculators": ["age", "percentage"],
+    "priority": 0.9
+  },
+  {
+    "id": "age",
+    "title": "Age Calculator",
+    "description": "Calculate your exact age in years, months, and days from your date of birth. Find out how many days until your next birthday.",
+    "category": "health",
+    "keywords": ["age calculator", "date of birth", "how old am I"],
+    "icon": "health",
+    "inputs": [
+      { "id": "birthDate", "label": "Date of Birth", "type": "date", "default": "2000-01-01" }
+    ],
+    "outputs": [
+      { "id": "ageString", "label": "Your Age", "format": "text" },
+      { "id": "totalDays", "label": "Total Days Lived", "format": "number" },
+      { "id": "nextBirthday", "label": "Next Birthday In", "format": "text" }
+    ],
+    "hasChart": false,
+    "explanation": "<h3>How Age is Calculated</h3><p>Your exact age is calculated by finding the difference between your date of birth and today's date, broken down into years, months, and days.</p>",
+    "relatedCalculators": ["bmi", "percentage"],
+    "priority": 0.8
+  },
+  {
+    "id": "gst",
+    "title": "GST Calculator",
+    "description": "Calculate GST (Goods and Services Tax) — add or remove GST at any rate. See base amount, GST amount, and total.",
+    "category": "everyday",
+    "keywords": ["gst calculator", "tax calculator", "goods and services tax"],
+    "icon": "everyday",
+    "inputs": [
+      { "id": "amount", "label": "Amount", "type": "currency", "default": 10000, "min": 0, "step": 100 },
+      { "id": "gstRate", "label": "GST Rate (%)", "type": "percent", "default": 18, "min": 0, "max": 100, "step": 0.5 },
+      { "id": "isInclusive", "label": "Price includes GST? (0=No, 1=Yes)", "type": "number", "default": 0, "min": 0, "max": 1, "step": 1 }
+    ],
+    "outputs": [
+      { "id": "baseAmount", "label": "Base Amount", "format": "currency" },
+      { "id": "gstAmount", "label": "GST Amount", "format": "currency" },
+      { "id": "totalAmount", "label": "Total Amount", "format": "currency" }
+    ],
+    "hasChart": false,
+    "explanation": "<h3>GST Calculation</h3><p><strong>Exclusive (add GST):</strong></p><p class=\"formula\">GST = Amount × Rate / 100<br>Total = Amount + GST</p><p><strong>Inclusive (remove GST):</strong></p><p class=\"formula\">Base = Total / (1 + Rate / 100)<br>GST = Total − Base</p>",
+    "relatedCalculators": ["discount", "tip", "percentage"],
+    "priority": 0.7
+  },
+  {
+    "id": "tip",
+    "title": "Tip Calculator",
+    "description": "Calculate the tip amount and split the bill among friends. Choose a tip percentage and number of people to split with.",
+    "category": "everyday",
+    "keywords": ["tip calculator", "bill splitter", "restaurant tip"],
+    "icon": "everyday",
+    "inputs": [
+      { "id": "billAmount", "label": "Bill Amount", "type": "currency", "default": 1500, "min": 0, "step": 10 },
+      { "id": "tipPercent", "label": "Tip Percentage (%)", "type": "percent", "default": 15, "min": 0, "max": 100, "step": 1 },
+      { "id": "splitCount", "label": "Split Between (people)", "type": "number", "default": 1, "min": 1, "max": 100, "step": 1 }
+    ],
+    "outputs": [
+      { "id": "tipAmount", "label": "Tip Amount", "format": "currency" },
+      { "id": "totalBill", "label": "Total Bill", "format": "currency" },
+      { "id": "perPerson", "label": "Per Person", "format": "currency" }
+    ],
+    "hasChart": false,
+    "explanation": "<h3>Tip Calculation</h3><p class=\"formula\">Tip = Bill × Tip% / 100<br>Total = Bill + Tip<br>Per Person = Total / Number of People</p>",
+    "relatedCalculators": ["gst", "discount", "percentage"],
+    "priority": 0.7
+  },
+  {
+    "id": "discount",
+    "title": "Discount Calculator",
+    "description": "Calculate the discount amount and final price after applying a percentage discount. See how much you save.",
+    "category": "everyday",
+    "keywords": ["discount calculator", "sale price", "percentage off"],
+    "icon": "everyday",
+    "inputs": [
+      { "id": "originalPrice", "label": "Original Price", "type": "currency", "default": 5000, "min": 0, "step": 100 },
+      { "id": "discountPercent", "label": "Discount (%)", "type": "percent", "default": 20, "min": 0, "max": 100, "step": 1 }
+    ],
+    "outputs": [
+      { "id": "discountAmount", "label": "You Save", "format": "currency" },
+      { "id": "finalPrice", "label": "Final Price", "format": "currency" }
+    ],
+    "hasChart": false,
+    "explanation": "<h3>Discount Calculation</h3><p class=\"formula\">Discount = Original Price × Discount% / 100<br>Final Price = Original Price − Discount</p>",
+    "relatedCalculators": ["percentage", "gst", "tip"],
+    "priority": 0.8
+  }
+]

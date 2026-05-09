@@ -1,0 +1,99 @@
+{
+  "length": {
+    "label": "Length",
+    "units": [
+      { "id": "meter", "label": "Meters", "symbol": "m", "toBase": 1 },
+      { "id": "kilometer", "label": "Kilometers", "symbol": "km", "toBase": 1000 },
+      { "id": "centimeter", "label": "Centimeters", "symbol": "cm", "toBase": 0.01 },
+      { "id": "millimeter", "label": "Millimeters", "symbol": "mm", "toBase": 0.001 },
+      { "id": "mile", "label": "Miles", "symbol": "mi", "toBase": 1609.344 },
+      { "id": "yard", "label": "Yards", "symbol": "yd", "toBase": 0.9144 },
+      { "id": "foot", "label": "Feet", "symbol": "ft", "toBase": 0.3048 },
+      { "id": "inch", "label": "Inches", "symbol": "in", "toBase": 0.0254 }
+    ]
+  },
+  "weight": {
+    "label": "Weight",
+    "units": [
+      { "id": "kilogram", "label": "Kilograms", "symbol": "kg", "toBase": 1 },
+      { "id": "gram", "label": "Grams", "symbol": "g", "toBase": 0.001 },
+      { "id": "milligram", "label": "Milligrams", "symbol": "mg", "toBase": 0.000001 },
+      { "id": "pound", "label": "Pounds", "symbol": "lb", "toBase": 0.45359237 },
+      { "id": "ounce", "label": "Ounces", "symbol": "oz", "toBase": 0.028349523 },
+      { "id": "ton", "label": "Metric Tons", "symbol": "t", "toBase": 1000 },
+      { "id": "stone", "label": "Stone", "symbol": "st", "toBase": 6.35029318 }
+    ]
+  },
+  "temperature": {
+    "label": "Temperature",
+    "units": [
+      {
+        "id": "celsius", "label": "Celsius", "symbol": "°C",
+        "convert": { "toBase": "x", "fromBase": "x" }
+      },
+      {
+        "id": "fahrenheit", "label": "Fahrenheit", "symbol": "°F",
+        "convert": { "toBase": "(x - 32) * 5 / 9", "fromBase": "x * 9 / 5 + 32" }
+      },
+      {
+        "id": "kelvin", "label": "Kelvin", "symbol": "K",
+        "convert": { "toBase": "x - 273.15", "fromBase": "x + 273.15" }
+      }
+    ]
+  },
+  "area": {
+    "label": "Area",
+    "units": [
+      { "id": "sqmeter", "label": "Square Meters", "symbol": "m²", "toBase": 1 },
+      { "id": "sqkilometer", "label": "Square Kilometers", "symbol": "km²", "toBase": 1000000 },
+      { "id": "sqfoot", "label": "Square Feet", "symbol": "ft²", "toBase": 0.09290304 },
+      { "id": "acre", "label": "Acres", "symbol": "ac", "toBase": 4046.8564224 },
+      { "id": "hectare", "label": "Hectares", "symbol": "ha", "toBase": 10000 }
+    ]
+  },
+  "volume": {
+    "label": "Volume",
+    "units": [
+      { "id": "liter", "label": "Liters", "symbol": "L", "toBase": 1 },
+      { "id": "milliliter", "label": "Milliliters", "symbol": "mL", "toBase": 0.001 },
+      { "id": "gallon", "label": "US Gallons", "symbol": "gal", "toBase": 3.78541 },
+      { "id": "quart", "label": "US Quarts", "symbol": "qt", "toBase": 0.946353 },
+      { "id": "cup", "label": "US Cups", "symbol": "cup", "toBase": 0.236588 },
+      { "id": "floz", "label": "US Fluid Ounces", "symbol": "fl oz", "toBase": 0.0295735 }
+    ]
+  },
+  "speed": {
+    "label": "Speed",
+    "units": [
+      { "id": "mps", "label": "Meters per Second", "symbol": "m/s", "toBase": 1 },
+      { "id": "kmh", "label": "Kilometers per Hour", "symbol": "km/h", "toBase": 0.277778 },
+      { "id": "mph", "label": "Miles per Hour", "symbol": "mph", "toBase": 0.44704 },
+      { "id": "knot", "label": "Knots", "symbol": "kn", "toBase": 0.514444 }
+    ]
+  },
+  "data": {
+    "label": "Data Storage",
+    "units": [
+      { "id": "byte", "label": "Bytes", "symbol": "B", "toBase": 1 },
+      { "id": "kilobyte", "label": "Kilobytes", "symbol": "KB", "toBase": 1000 },
+      { "id": "megabyte", "label": "Megabytes", "symbol": "MB", "toBase": 1000000 },
+      { "id": "gigabyte", "label": "Gigabytes", "symbol": "GB", "toBase": 1000000000 },
+      { "id": "terabyte", "label": "Terabytes", "symbol": "TB", "toBase": 1000000000000 },
+      { "id": "kibibyte", "label": "Kibibytes", "symbol": "KiB", "toBase": 1024 },
+      { "id": "mebibyte", "label": "Mebibytes", "symbol": "MiB", "toBase": 1048576 }
+    ]
+  },
+  "time": {
+    "label": "Time",
+    "units": [
+      { "id": "second", "label": "Seconds", "symbol": "s", "toBase": 1 },
+      { "id": "millisecond", "label": "Milliseconds", "symbol": "ms", "toBase": 0.001 },
+      { "id": "minute", "label": "Minutes", "symbol": "min", "toBase": 60 },
+      { "id": "hour", "label": "Hours", "symbol": "hr", "toBase": 3600 },
+      { "id": "day", "label": "Days", "symbol": "d", "toBase": 86400 },
+      { "id": "week", "label": "Weeks", "symbol": "wk", "toBase": 604800 },
+      { "id": "month", "label": "Months (30d)", "symbol": "mo", "toBase": 2592000 },
+      { "id": "year", "label": "Years (365d)", "symbol": "yr", "toBase": 31536000 }
+    ]
+  }
+}

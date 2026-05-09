@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+{{HEAD}}
+<link rel="stylesheet" href="/css/calculator.css">
+</head>
+<body>
+{{HEADER}}
+<main class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    {{BREADCRUMB}}
+  </nav>
+
+  <article class="calculator-page">
+    <header class="calc-hero">
+      <h1 class="calc-title">{{CALC_TITLE}}</h1>
+      <p class="calc-description">{{CALC_DESCRIPTION}}</p>
+    </header>
+
+    <div class="calc-layout">
+      <section class="calc-form-section">
+        <form class="calc-form" id="calc-form" novalidate>
+          {{CALC_INPUTS}}
+          <button type="submit" class="btn btn-primary calc-submit">Calculate</button>
+          <button type="reset" class="btn btn-secondary calc-reset">Reset</button>
+        </form>
+      </section>
+
+      <section class="calc-results-section" id="calc-results" aria-live="polite" hidden>
+        <h2 class="results-heading">Results</h2>
+        <div class="results-cards" id="results-cards"></div>
+        <div class="chart-container" id="chart-container" hidden>
+          <canvas id="calc-chart" width="400" height="300"></canvas>
+        </div>
+        <div class="results-actions">
+          <button type="button" class="btn btn-secondary btn-sm" id="copy-results">Copy</button>
+          <button type="button" class="btn btn-secondary btn-sm" id="share-results">Share</button>
+        </div>
+      </section>
+    </div>
+
+    {{AD_SLOT}}
+
+    <section class="calc-explanation">
+      {{CALC_EXPLANATION}}
+    </section>
+
+    {{FAQ_SECTION}}
+
+    {{RELATED}}
+  </article>
+</main>
+{{FOOTER}}
+<script src="/js/main.js" defer></script>
+<script src="/calculators/{{CALC_ID}}.js" defer></script>
+<script src="/js/chart.js" defer></script>
+<script src="/js/calculator-ui.js" defer></script>
+{{STRUCTURED_DATA}}
+</body>
+</html>

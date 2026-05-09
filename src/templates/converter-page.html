@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+{{HEAD}}
+</head>
+<body>
+{{HEADER}}
+<main class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    {{BREADCRUMB}}
+  </nav>
+
+  <article class="converter-page">
+    <h1 class="converter-title">{{CONVERTER_TITLE}}</h1>
+
+    <div class="converter-widget card">
+      <div class="converter-inputs">
+        <div class="converter-field">
+          <label class="form-label" for="from-value">{{FROM_LABEL}} ({{FROM_SYMBOL}})</label>
+          <input class="form-input converter-input" type="number" id="from-value" value="1" step="any" inputmode="decimal">
+        </div>
+        <button class="btn-icon swap-btn" id="swap-btn" type="button" aria-label="Swap units">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16l-4-4m0 0l4-4m-4 4h18M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </button>
+        <div class="converter-field">
+          <label class="form-label" for="to-value">{{TO_LABEL}} ({{TO_SYMBOL}})</label>
+          <input class="form-input converter-input" type="number" id="to-value" readonly tabindex="-1">
+        </div>
+      </div>
+      <div class="converter-result-text" id="result-text" aria-live="polite"></div>
+      <button class="btn btn-secondary btn-sm" id="copy-result" type="button">Copy Result</button>
+    </div>
+
+    {{AD_SLOT}}
+
+    <section class="conversion-table-section">
+      <h2>Common Conversions</h2>
+      <table class="conversion-table">
+        <thead><tr><th>{{FROM_LABEL}}</th><th>{{TO_LABEL}}</th></tr></thead>
+        <tbody>
+          {{CONVERSION_TABLE}}
+        </tbody>
+      </table>
+    </section>
+
+    <section class="formula-section">
+      <h2>Conversion Formula</h2>
+      {{FORMULA_EXPLANATION}}
+    </section>
+
+    <section class="related-section">
+      <h2>Related Conversions</h2>
+      <div class="related-grid">
+        {{RELATED_CONVERTERS}}
+      </div>
+    </section>
+  </article>
+</main>
+{{FOOTER}}
+<script>window.__CONVERSION_DATA__ = {{CONVERSION_DATA}};</script>
+<script src="/js/main.js" defer></script>
+<script src="/js/converter-ui.js" defer></script>
+{{STRUCTURED_DATA}}
+</body>
+</html>
