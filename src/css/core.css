@@ -157,7 +157,7 @@ ul, ol {
   background-color: var(--color-primary);
   color: #fff;
 }
-.btn-primary:hover { background-color: var(--color-primary-hover); }
+.btn-primary:hover { background-color: var(--color-primary-hover); color: #fff; }
 
 .btn-secondary {
   background-color: var(--color-card);
