@@ -36,5 +36,92 @@
   ],
   "loan": [
     { "question": "What factors affect loan interest?", "answer": "The total interest paid depends on the loan amount, interest rate, and loan term. A higher rate or longer term increases total interest, while a larger down payment reduces it." }
+  ],
+  "ppf": [
+    { "question": "What is PPF?", "answer": "PPF (Public Provident Fund) is a long-term savings scheme backed by the Government of India. It offers tax-free returns and has a lock-in period of 15 years, extendable in blocks of 5 years." },
+    { "question": "What is the current PPF interest rate?", "answer": "The PPF interest rate is set by the government each quarter. As of 2024-25, the rate is 7.1% per annum, compounded annually." },
+    { "question": "What is the maximum PPF deposit limit?", "answer": "The maximum deposit in a PPF account is ₹1,50,000 per financial year. The minimum annual deposit is ₹500." },
+    { "question": "Is PPF tax-free?", "answer": "Yes, PPF enjoys EEE (Exempt-Exempt-Exempt) tax status. The deposit qualifies for deduction under Section 80C, the interest earned is tax-free, and the maturity amount is also tax-free." }
+  ],
+  "epf": [
+    { "question": "What is EPF?", "answer": "EPF (Employee Provident Fund) is a retirement savings scheme managed by EPFO where both employee and employer contribute a percentage of basic salary every month." },
+    { "question": "How much does the employer contribute to EPF?", "answer": "The employer contributes 12% of basic salary, but only 3.67% goes to EPF. The remaining 8.33% goes to EPS (Employee Pension Scheme), subject to a salary cap of ₹15,000." },
+    { "question": "What is the current EPF interest rate?", "answer": "The EPF interest rate for 2023-24 is 8.25% per annum. It is declared annually by the EPFO and credited to accounts." }
+  ],
+  "gratuity": [
+    { "question": "Who is eligible for gratuity?", "answer": "Employees who have completed at least 5 years of continuous service with an employer are eligible for gratuity under the Payment of Gratuity Act, 1972." },
+    { "question": "How is gratuity calculated?", "answer": "Gratuity = (15 × Last Drawn Salary × Years of Service) / 26. The salary includes basic pay and dearness allowance. The formula divides by 26 as it represents working days in a month." },
+    { "question": "Is there a maximum limit on gratuity?", "answer": "Yes, the maximum gratuity payable is ₹20 lakh under the Payment of Gratuity Act. Amounts above this may be paid at the employer's discretion." }
+  ],
+  "fd": [
+    { "question": "What is a Fixed Deposit?", "answer": "A Fixed Deposit (FD) is a financial instrument where you deposit a lump sum for a fixed tenure at a predetermined interest rate. It offers guaranteed returns and is considered a safe investment." },
+    { "question": "How does compounding frequency affect FD returns?", "answer": "More frequent compounding (e.g., quarterly vs annually) results in slightly higher returns because interest is calculated on previously earned interest more often." },
+    { "question": "Is FD interest taxable?", "answer": "Yes, FD interest is fully taxable and added to your income. TDS is deducted at 10% if interest exceeds ₹40,000 per year (₹50,000 for senior citizens)." }
+  ],
+  "rd": [
+    { "question": "What is a Recurring Deposit?", "answer": "A Recurring Deposit (RD) is a savings scheme where you deposit a fixed amount every month for a predetermined tenure. Interest is compounded quarterly in most Indian banks." },
+    { "question": "How is RD interest calculated?", "answer": "RD uses quarterly compounding. Each monthly deposit earns interest for its remaining tenure. The total maturity includes all deposits plus accumulated interest." },
+    { "question": "What is the minimum RD tenure?", "answer": "Most banks offer RD with a minimum tenure of 6 months. Maximum tenure varies but typically goes up to 10 years." }
+  ],
+  "nps": [
+    { "question": "What is NPS?", "answer": "NPS (National Pension System) is a voluntary retirement savings scheme regulated by PFRDA. It offers market-linked returns through investments in equity, corporate bonds, and government securities." },
+    { "question": "What is the minimum annuity requirement in NPS?", "answer": "At retirement (age 60), you must invest at least 40% of your NPS corpus in an annuity plan to receive a regular pension. The remaining 60% can be withdrawn as a tax-free lump sum." },
+    { "question": "What tax benefits does NPS offer?", "answer": "NPS contributions qualify for deduction under Section 80CCD(1) within the 80C limit of ₹1.5 lakh, plus an additional ₹50,000 under Section 80CCD(1B)." }
+  ],
+  "income-tax": [
+    { "question": "What is the new tax regime?", "answer": "The new tax regime (default from FY 2023-24) offers lower tax rates with fewer slabs but does not allow most deductions and exemptions like 80C, HRA, etc. It includes a standard deduction of ₹75,000." },
+    { "question": "Which is better — old or new regime?", "answer": "If your total deductions (80C, HRA, 80D, etc.) exceed approximately ₹3-4 lakh, the old regime may save more tax. Otherwise, the new regime with its lower rates is typically better." },
+    { "question": "What is the rebate under Section 87A?", "answer": "Under the new regime, if your taxable income is up to ₹12 lakh (after standard deduction), you get a full rebate and pay zero tax. Under the old regime, the rebate applies up to ₹5 lakh." },
+    { "question": "What is the 4% cess?", "answer": "A Health and Education Cess of 4% is levied on the total tax amount (after rebate). This cess funds healthcare and education initiatives." }
+  ],
+  "hra": [
+    { "question": "What is HRA exemption?", "answer": "HRA (House Rent Allowance) exemption is a tax benefit for salaried employees who pay rent. The exempt amount is the minimum of: actual HRA received, 50%/40% of basic salary (metro/non-metro), or rent paid minus 10% of basic salary." },
+    { "question": "Which cities are considered metro for HRA?", "answer": "For HRA calculation, metro cities are Delhi, Mumbai, Kolkata, and Chennai. Employees in these cities get 50% of basic salary as the HRA limit, while non-metro employees get 40%." },
+    { "question": "Can I claim HRA if I have a home loan?", "answer": "Yes, you can claim both HRA exemption and home loan deductions (Section 24 and Section 80C) simultaneously, provided you live in a rented house in a different city from your owned property." }
+  ],
+  "stamp-duty": [
+    { "question": "What is stamp duty?", "answer": "Stamp duty is a tax levied by state governments on property transactions. It must be paid to legally register the property in your name and varies by state, ranging from 4% to 8% of property value." },
+    { "question": "Is stamp duty different for men and women?", "answer": "Some states like Delhi and Rajasthan offer lower stamp duty rates for women buyers (1-2% less). This calculator uses the standard rates; check your state for gender-based concessions." },
+    { "question": "What are registration charges?", "answer": "Registration charges are fees paid to the sub-registrar office for registering the property sale deed. They are typically 1% of property value, in addition to stamp duty." }
+  ],
+  "gold-price": [
+    { "question": "What is the difference between 24K, 22K, and 18K gold?", "answer": "24K gold is 99.9% pure gold. 22K is 91.6% gold (mixed with metals for durability, used in jewelry). 18K is 75% gold. Higher purity means higher price but softer metal." },
+    { "question": "What are making charges?", "answer": "Making charges cover the cost of crafting raw gold into jewelry. They typically range from 8% to 25% of the gold value, depending on the design complexity and jeweler." },
+    { "question": "How is gold price determined?", "answer": "Gold prices are influenced by international spot prices, currency exchange rates (USD/INR), import duties, and local demand-supply dynamics." }
+  ],
+  "love": [
+    { "question": "How does the love calculator work?", "answer": "The love calculator uses a fun algorithm based on the letters in both names to generate a compatibility score between 1 and 100. The same names always produce the same result." },
+    { "question": "Is the love calculator accurate?", "answer": "The love calculator is meant for entertainment only! Real relationship compatibility depends on communication, shared values, respect, and emotional connection — not name-based algorithms." }
+  ],
+  "numerology": [
+    { "question": "What is Pythagorean numerology?", "answer": "Pythagorean numerology assigns numbers 1-9 to letters of the alphabet (A=1, B=2, ... I=9, J=1, K=2, ...). Your name's letter values are summed and reduced to a single digit to reveal your expression number." },
+    { "question": "What are master numbers?", "answer": "Master numbers (11, 22, 33) are not reduced to a single digit because they carry special significance. 11 represents intuition, 22 represents the master builder, and 33 represents the master teacher." }
+  ],
+  "sleep": [
+    { "question": "What is a sleep cycle?", "answer": "A complete sleep cycle lasts approximately 90 minutes and includes stages of light sleep, deep sleep, and REM (dream) sleep. Most adults need 4 to 6 complete cycles per night." },
+    { "question": "Why is waking between cycles better?", "answer": "Waking up at the end of a sleep cycle (during light sleep) helps you feel refreshed. Waking during deep sleep can cause grogginess and sleep inertia, making you feel tired." },
+    { "question": "How long does it take to fall asleep?", "answer": "The average person takes about 10-20 minutes to fall asleep. This calculator uses 15 minutes as the standard estimate. If you regularly take longer, adjust your bedtime accordingly." }
+  ],
+  "water-intake": [
+    { "question": "How much water should I drink daily?", "answer": "A general guideline is 33 ml per kg of body weight. A 70 kg person should drink about 2.3 liters daily, adjusted upward for exercise, hot weather, and high altitude." },
+    { "question": "Does coffee count toward water intake?", "answer": "Yes, coffee and tea contribute to daily fluid intake. While caffeine has a mild diuretic effect, the water content more than compensates. However, plain water remains the best choice for hydration." }
+  ],
+  "fuel-cost": [
+    { "question": "How is fuel cost calculated?", "answer": "Fuel needed = Distance / Mileage (km/L). Total cost = Fuel needed × Price per liter. For example, a 100 km trip at 15 km/L with fuel at ₹100/L costs ₹667." },
+    { "question": "How can I improve fuel mileage?", "answer": "Maintain steady speeds, avoid rapid acceleration/braking, keep tires properly inflated, reduce idling, and remove unnecessary weight from the vehicle." }
+  ],
+  "electricity-bill": [
+    { "question": "How are electricity units calculated?", "answer": "One unit (kWh) = 1000 watts used for 1 hour. A 100W bulb running for 10 hours consumes 1 unit. Check your meter readings to find monthly consumption." },
+    { "question": "What are fixed charges?", "answer": "Fixed charges (also called meter rent or demand charges) are monthly fees charged regardless of consumption. They cover the cost of maintaining the electricity connection and infrastructure." }
+  ],
+  "rent-vs-buy": [
+    { "question": "Should I rent or buy a house?", "answer": "It depends on factors like how long you plan to stay, local property prices, rental rates, loan interest rates, and property appreciation. Generally, buying makes more sense for stays longer than 7-10 years." },
+    { "question": "What is the break-even point?", "answer": "The break-even point is when the total cost of buying (including down payment, EMI, maintenance) equals the total cost of renting. Beyond this point, buying becomes cheaper." },
+    { "question": "Does property appreciation matter?", "answer": "Yes, property appreciation significantly affects the rent-vs-buy decision. Higher appreciation makes buying more attractive because the property gains value over time, offsetting the higher initial cost." }
+  ],
+  "due-date": [
+    { "question": "What is Naegele's rule?", "answer": "Naegele's rule estimates the due date by adding 280 days (40 weeks) to the first day of the last menstrual period (LMP). It assumes a 28-day menstrual cycle with ovulation on day 14." },
+    { "question": "How accurate is the due date?", "answer": "Only about 5% of babies are born on their exact due date. Most deliveries occur within 2 weeks before or after the estimated date. It serves as a guideline rather than an exact prediction." },
+    { "question": "What are the three trimesters?", "answer": "First trimester: weeks 1-12 (organ formation). Second trimester: weeks 13-26 (growth and movement). Third trimester: weeks 27-40 (final development and preparation for birth)." }
   ]
 }

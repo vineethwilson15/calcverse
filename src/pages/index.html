@@ -9,18 +9,17 @@
   <section class="hero">
     <h1 class="hero-title">Free Online Calculators &amp; Unit Converters</h1>
     <p class="hero-subtitle">Fast, accurate tools for finance, health, math, and everyday calculations. No signup, no tracking — all calculations happen in your browser.</p>
-  </section>
-
-  <section class="home-section">
-    <h2>Popular Calculators</h2>
-    <div class="card-grid">
-      {{CALCULATOR_CARDS}}
+    <p class="hero-stats">{{CALC_COUNT}} Calculators · {{CONVERTER_COUNT}}+ Unit Conversions</p>
+    <div class="search-bar">
+      <input type="search" class="form-input search-input" id="homepage-search" placeholder="Search calculators &amp; converters..." aria-label="Search tools">
     </div>
   </section>
 
+  {{CALCULATOR_CARDS}}
+
   {{AD_SLOT}}
 
-  <section class="home-section">
+  <section class="home-section" id="section-converters">
     <h2>Unit Converters</h2>
     <div class="card-grid">
       {{CONVERTER_CATEGORIES}}
@@ -29,13 +28,33 @@
 </main>
 {{FOOTER}}
 <script src="/js/main.js" defer></script>
+<script>
+(function () {
+  var s = document.getElementById('homepage-search');
+  if (!s) return;
+  s.addEventListener('input', function () {
+    var q = this.value.toLowerCase();
+    var sections = document.querySelectorAll('.home-section');
+    for (var i = 0; i < sections.length; i++) {
+      var cards = sections[i].querySelectorAll('.card');
+      var visible = 0;
+      for (var j = 0; j < cards.length; j++) {
+        var show = !q || cards[j].textContent.toLowerCase().indexOf(q) !== -1;
+        cards[j].style.display = show ? '' : 'none';
+        if (show) visible++;
+      }
+      sections[i].style.display = (!q || visible > 0) ? '' : 'none';
+    }
+  });
+})();
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "CalcVerse",
   "url": "https://calcverse.pages.dev",
-  "description": "Free online calculators and unit converters — EMI, SIP, BMI, percentage, and 400+ unit conversions.",
+  "description": "Free online calculators and unit converters — EMI, SIP, BMI, PPF, income tax, and 500+ unit conversions.",
   "potentialAction": {
     "@type": "SearchAction",
     "target": "https://calcverse.pages.dev/?q={search_term_string}",

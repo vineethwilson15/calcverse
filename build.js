@@ -68,12 +68,34 @@ function buildInputHTML(inputs) {
   var html = '';
   for (var i = 0; i < inputs.length; i++) {
     var inp = inputs[i];
+
+    html += '<div class="form-group">\n';
+    html += '  <label class="form-label" for="input-' + inp.id + '">' + inp.label + '</label>\n';
+
+    if (inp.type === 'select') {
+      html += '  <select class="form-input form-select" id="input-' + inp.id + '" name="' + inp.id + '">\n';
+      var opts = inp.options || [];
+      for (var j = 0; j < opts.length; j++) {
+        var sel = (String(opts[j].value) === String(inp.default)) ? ' selected' : '';
+        html += '    <option value="' + opts[j].value + '"' + sel + '>' + opts[j].label + '</option>\n';
+      }
+      html += '  </select>\n';
+      html += '</div>\n';
+      continue;
+    }
+
+    if (inp.type === 'text') {
+      html += '  <input class="form-input" type="text" id="input-' + inp.id + '" name="' + inp.id + '"';
+      if (inp.placeholder) html += ' placeholder="' + inp.placeholder + '"';
+      if (inp.default !== undefined) html += ' value="' + inp.default + '"';
+      html += '>\n</div>\n';
+      continue;
+    }
+
     var inputType = (inp.type === 'currency' || inp.type === 'percent') ? 'number' : inp.type;
     var suffix = '';
     if (inp.type === 'percent') suffix = '%';
 
-    html += '<div class="form-group">\n';
-    html += '  <label class="form-label" for="input-' + inp.id + '">' + inp.label + '</label>\n';
     if (suffix) {
       html += '  <div class="input-group">\n';
     }
@@ -179,7 +201,7 @@ function buildRelatedHTML(calc, allCalcs) {
     if (!rel) continue;
     html += '<a href="/calculator/' + rel.id + '/" class="card card-link related-card">';
     html += '<h3>' + rel.title + '</h3>';
-    html += '<p>' + rel.description.substring(0, 80) + '</p>';
+    html += '<p>' + rel.description + '</p>';
     html += '</a>\n';
   }
   html += '</div>\n</section>';
@@ -191,7 +213,8 @@ function categoryLabel(cat) {
     financial: 'Financial',
     health: 'Health',
     math: 'Math',
-    everyday: 'Everyday'
+    everyday: 'Everyday',
+    fun: 'Fun'
   };
   return labels[cat] || cat.charAt(0).toUpperCase() + cat.slice(1);
 }
@@ -298,8 +321,8 @@ function buildConverterPages(partials) {
           conversionData.factor = from.toBase / to.toBase;
           conversionData.type = 'factor';
         } else {
-          conversionData.fromConvert = from.convert || null;
-          conversionData.toConvert = to.convert || null;
+          conversionData.fromConvert = from.convert || (from.toBase !== undefined ? { toBase: 'x * ' + from.toBase, fromBase: 'x / ' + from.toBase } : null);
+          conversionData.toConvert = to.convert || (to.toBase !== undefined ? { toBase: 'x * ' + to.toBase, fromBase: 'x / ' + to.toBase } : null);
           conversionData.type = 'formula';
         }
 
@@ -312,7 +335,7 @@ function buildConverterPages(partials) {
           formulaText = '<p class="formula">1 ' + from.symbol + ' = ' + display + ' ' + to.symbol + '</p>';
           formulaText += '<p>Multiply the ' + from.label.toLowerCase() + ' value by ' + display + ' to convert to ' + to.label.toLowerCase() + '.</p>';
         } else {
-          formulaText = '<p>Temperature conversion uses a specific formula rather than a simple multiplication factor.</p>';
+          formulaText = '<p>This conversion uses a specific formula rather than a simple multiplication factor.</p>';
         }
 
         var relatedLinks = buildRelatedConverters(units, from, to, catKey);
@@ -540,7 +563,7 @@ function buildCategoryPages(partials) {
       for (var m = 0; m < items.length; m++) {
         calcCards += '<a href="/calculator/' + items[m].id + '/" class="card card-link converter-card">';
         calcCards += '<h3>' + items[m].title + '</h3>';
-        calcCards += '<p>' + items[m].description.substring(0, 80) + '</p>';
+        calcCards += '<p>' + items[m].description + '</p>';
         calcCards += '</a>\n';
       }
       var catName = categoryLabel(ck);
@@ -605,6 +628,16 @@ function buildStaticPages(partials) {
     if (slug === 'index') {
       tokens.CALCULATOR_CARDS = buildHomepageCalcCards();
       tokens.CONVERTER_CATEGORIES = buildHomepageConverterCards();
+      var calcs = readJSON(path.join(DATA_DIR, 'calculators.json'));
+      var converters = readJSON(path.join(DATA_DIR, 'converters.json'));
+      var totalConversions = 0;
+      var cats = Object.keys(converters);
+      for (var c = 0; c < cats.length; c++) {
+        var u = converters[cats[c]].units.length;
+        totalConversions += u * (u - 1);
+      }
+      tokens.CALC_COUNT = String(calcs.length);
+      tokens.CONVERTER_COUNT = String(totalConversions);
     }
 
     var html = render(content, tokens);
@@ -631,7 +664,7 @@ function slugToTitle(slug) {
 
 function getPageDescription(slug) {
   var descs = {
-    index: 'Free online calculators and unit converters — EMI, SIP, BMI, percentage, and 400+ unit conversions. Fast, mobile-first, no signup required.',
+    index: 'Free online calculators and unit converters — EMI, SIP, PPF, income tax, BMI, and 500+ unit conversions. Fast, mobile-first, no signup required.',
     about: 'About CalcVerse — free, open-source online calculators and unit converters. All calculations happen in your browser.',
     'privacy-policy': 'CalcVerse privacy policy. No personal data collected. All calculations are performed client-side.'
   };
@@ -642,12 +675,28 @@ function buildHomepageCalcCards() {
   var calcsPath = path.join(DATA_DIR, 'calculators.json');
   if (!fs.existsSync(calcsPath)) return '';
   var calcs = readJSON(calcsPath);
-  var html = '';
+  var groups = {};
+  var order = ['financial', 'health', 'everyday', 'fun', 'math'];
   for (var i = 0; i < calcs.length; i++) {
-    html += '<a href="/calculator/' + calcs[i].id + '/" class="card card-link calc-card">';
-    html += '<h3>' + calcs[i].title + '</h3>';
-    html += '<p>' + calcs[i].description.substring(0, 100) + '</p>';
-    html += '</a>\n';
+    var cat = calcs[i].category || 'other';
+    if (!groups[cat]) groups[cat] = [];
+    groups[cat].push(calcs[i]);
+  }
+  var html = '';
+  for (var o = 0; o < order.length; o++) {
+    var key = order[o];
+    if (!groups[key] || groups[key].length === 0) continue;
+    html += '<section class="home-section" id="section-' + key + '">\n';
+    html += '<h2>' + categoryLabel(key) + ' Calculators</h2>\n';
+    html += '<div class="card-grid">\n';
+    for (var j = 0; j < groups[key].length; j++) {
+      var c = groups[key][j];
+      html += '<a href="/calculator/' + c.id + '/" class="card card-link calc-card">';
+      html += '<h3>' + c.title + '</h3>';
+      html += '<p>' + c.description + '</p>';
+      html += '</a>\n';
+    }
+    html += '</div>\n</section>\n';
   }
   return html;
 }
