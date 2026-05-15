@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const SITE_URL = 'https://calcverse.pages.dev';
+const SITE_URL = 'https://calcverse.netlify.app';
 const SRC_DIR = path.join(__dirname, 'src');
 const DATA_DIR = path.join(__dirname, 'data');
 const DIST_DIR = path.join(__dirname, 'dist');
