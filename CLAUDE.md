@@ -6,8 +6,8 @@ Free online calculators & unit converters. Static HTML/CSS/JS, zero dependencies
 
 - **Static HTML/CSS/JS** — no framework, no bundler
 - **Build**: `node build.js` (Node.js built-ins only, zero npm dependencies)
-- **Hosting**: Cloudflare Pages at `calcverse.pages.dev`
-- **Pipeline**: `src/` + `data/` → `dist/` (dist/ is gitignored, Cloudflare builds on deploy)
+- **Hosting**: Netlify at `calcverse-tools.netlify.app`
+- **Pipeline**: `src/` + `data/` → `dist/` (dist/ is gitignored, Netlify builds on deploy)
 
 ## Directory Structure
 
@@ -47,12 +47,12 @@ Outputs everything to `dist/`. Safe to run repeatedly (wipes dist/ first).
 3. Generates category pages at `dist/category/<slug>/index.html`
 4. Processes `src/pages/*.html` with partial injection → `dist/`
 5. Generates sitemap.xml, robots.txt, manifest.json, sw.js
-6. Generates Cloudflare `_headers` and `_redirects`
+6. Generates `_headers` and `_redirects`
 7. Copies css/, js/, calculators/, assets/ to dist/
 
 ### Configurable constant at top of build.js:
 ```js
-const SITE_URL = 'https://calcverse.pages.dev';
+const SITE_URL = 'https://calcverse-tools.netlify.app';
 ```
 
 ## Template System
@@ -147,10 +147,10 @@ npx serve dist
 
 ## Deployment
 
-Cloudflare Pages auto-deploys on push to `master`:
+Netlify auto-deploys on push to `master`:
 - Build command: `node build.js`
 - Build output: `dist`
-- Node version: 20 (env var `NODE_VERSION=20`)
+- Node version: 20 (set in `netlify.toml`)
 
 ## Key Gotchas
 

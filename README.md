@@ -2,7 +2,7 @@
 
 Free online calculators & unit converters — EMI, SIP, BMI, percentage, and 400+ unit conversions. Fast, mobile-first, no signup.
 
-**Live:** [calcverse.pages.dev](https://calcverse.pages.dev)
+**Live:** [calcverse-tools.netlify.app](https://calcverse-tools.netlify.app)
 
 ## Features
 
