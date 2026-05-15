@@ -734,7 +734,6 @@ function generateSitemap(allUrls) {
 
 function generateRobotsTxt() {
   var txt = 'User-agent: *\nAllow: /\n\n';
-  txt += 'User-agent: AdsBot-Google\nDisallow: /convert/\n\n';
   txt += 'Sitemap: ' + SITE_URL + '/sitemap.xml\n';
   fs.writeFileSync(path.join(DIST_DIR, 'robots.txt'), txt);
 }
