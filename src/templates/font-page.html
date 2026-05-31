@@ -1,0 +1,52 @@
+{{HEAD}}
+<body>
+{{HEADER}}
+<main class="container tool-page">
+  {{BREADCRUMB_HTML}}
+
+  <section class="tool-hero">
+    <h1>{{FONT_NAME}} Text Generator</h1>
+    <p class="tool-subtitle">{{FONT_DESCRIPTION}}</p>
+    <div class="preview-badge">{{FONT_PREVIEW}}</div>
+  </section>
+
+  <section class="tool-workspace">
+    <div class="input-area">
+      <label for="text-input" class="input-label">Type or paste your text</label>
+      <textarea id="text-input" class="text-input" placeholder="Type something here..." rows="3">The quick brown fox jumps over the lazy dog</textarea>
+    </div>
+    <div class="output-area">
+      <div class="output-header">
+        <span class="output-label">{{FONT_NAME}} Result</span>
+        <button class="copy-btn" id="copy-btn" aria-label="Copy to clipboard">
+          <span class="copy-icon">📋</span>
+          <span class="copy-text">Copy</span>
+        </button>
+      </div>
+      <div class="output-text" id="output-text"></div>
+    </div>
+  </section>
+
+  {{AD_SLOT}}
+
+  <section class="tool-content">
+    <h2>About {{FONT_NAME}} Text</h2>
+    <p>{{FONT_CONTENT}}</p>
+
+    <h3>Tips for Using {{FONT_NAME}} Text</h3>
+    <p>{{FONT_TIPS}}</p>
+
+    <h3>Platform Compatibility</h3>
+    <p>{{FONT_NAME}} text works on: {{FONT_PLATFORMS}}. Simply generate your text above, click copy, and paste it anywhere.</p>
+  </section>
+
+  {{FAQ_SECTION}}
+  {{RELATED}}
+</main>
+{{FOOTER}}
+{{FONT_DATA_SCRIPT}}
+<script src="/js/font-engine.js"></script>
+<script src="/js/copy-utils.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,127 +1,41 @@
 {
-  "emi": [
-    { "question": "What is EMI?", "answer": "EMI (Equated Monthly Installment) is a fixed payment amount made by a borrower to a lender at a specified date each month. It includes both principal and interest components." },
-    { "question": "How is EMI calculated?", "answer": "EMI is calculated using the formula: EMI = P × r × (1+r)^n / ((1+r)^n - 1), where P is the loan amount, r is the monthly interest rate, and n is the number of months." },
-    { "question": "Does a longer tenure reduce EMI?", "answer": "Yes, a longer tenure reduces the monthly EMI amount, but increases the total interest paid over the life of the loan." }
+  "font-default": [
+    { "question": "How do I use this font generator?", "answer": "Simply type or paste your text in the input box above. The styled text will appear instantly below. Click the Copy button to copy it to your clipboard, then paste it wherever you want — social media, messages, documents, etc." },
+    { "question": "Will this font work on Instagram/Twitter/Discord?", "answer": "Yes! Unicode text works on virtually all platforms including Instagram, Twitter/X, Discord, Facebook, WhatsApp, TikTok, and more. The styled characters are real Unicode code points, not formatting — so they work in any text field." },
+    { "question": "Why do some characters not change?", "answer": "Unicode doesn't have styled versions of all characters. Punctuation, spaces, and some special characters will remain unchanged. Some font styles only support uppercase or lowercase letters." },
+    { "question": "Is this free to use?", "answer": "Yes, Fontify is completely free with no limits. You can generate as much styled text as you want without signing up or paying anything." }
   ],
-  "sip": [
-    { "question": "What is SIP?", "answer": "SIP (Systematic Investment Plan) is a method of investing a fixed amount regularly in mutual funds. It helps in averaging the purchase cost and building wealth over time." },
-    { "question": "How are SIP returns calculated?", "answer": "SIP returns are calculated using the future value of annuity formula, considering the monthly investment amount, expected rate of return, and investment duration." },
-    { "question": "Is SIP better than lump sum investment?", "answer": "SIP helps in rupee cost averaging and reduces the risk of market timing. It is generally recommended for long-term wealth creation, especially for new investors." }
+  "symbols-default": [
+    { "question": "How do I copy a symbol?", "answer": "Simply click on any symbol in the grid above. It will be automatically copied to your clipboard. You'll see a confirmation message when it's copied successfully." },
+    { "question": "Where can I use these symbols?", "answer": "These Unicode symbols work everywhere that supports text input — social media posts, messages, emails, documents, website content, and more. They're real characters, not images." },
+    { "question": "Why doesn't a symbol display correctly?", "answer": "Some symbols require modern font support. If a symbol appears as a box or question mark, your device or browser may not have a font that includes that character. Try updating your system or using a different device." }
   ],
-  "compound-interest": [
-    { "question": "What is compound interest?", "answer": "Compound interest is interest calculated on both the initial principal and the accumulated interest from previous periods. It makes your money grow faster than simple interest." },
-    { "question": "How does compounding frequency affect returns?", "answer": "More frequent compounding (monthly vs annually) results in slightly higher returns because interest is calculated and added to the principal more often." }
+  "tools-default": [
+    { "question": "How does this text tool work?", "answer": "Type or paste your text in the input area above. The tool will automatically transform it using Unicode characters or special formatting techniques. Click Copy to copy the result to your clipboard." },
+    { "question": "Will the transformed text work everywhere?", "answer": "Most tools use Unicode characters which work on all platforms. Some tools (like spoiler text) use platform-specific formatting that only works on certain apps like Discord." },
+    { "question": "Is my text stored anywhere?", "answer": "No. All transformations happen in your browser. Your text is never sent to any server or stored anywhere. Everything is processed locally on your device." }
   ],
-  "bmi": [
-    { "question": "What is a healthy BMI range?", "answer": "A BMI between 18.5 and 24.9 is considered normal weight. Below 18.5 is underweight, 25-29.9 is overweight, and 30 or above is obese." },
-    { "question": "Is BMI accurate for everyone?", "answer": "BMI is a useful screening tool but doesn't account for muscle mass, bone density, or body composition. Athletes may have a high BMI due to muscle mass despite being healthy." }
+  "use-case-default": [
+    { "question": "Are these fonts safe to use on social media?", "answer": "Yes! Unicode fonts are just regular text characters and don't violate any platform's terms of service. They work like normal text but look different because they use alternate Unicode character sets." },
+    { "question": "Will fancy fonts affect my reach or engagement?", "answer": "Using fancy fonts sparingly can increase engagement by making your posts stand out. However, excessive use may reduce readability. It's best to use styled text for headers, bios, or key words rather than entire paragraphs." },
+    { "question": "Do these fonts work on all devices?", "answer": "Most Unicode fonts display correctly on modern smartphones, tablets, and computers. Very old devices or systems with limited font support may not render all characters correctly." }
   ],
-  "percentage": [
-    { "question": "How do I calculate percentage of a number?", "answer": "To find X% of Y, multiply Y by X and divide by 100. For example, 15% of 200 = 200 × 15 / 100 = 30." },
-    { "question": "How do I calculate percentage change?", "answer": "Percentage change = ((New Value - Old Value) / Old Value) × 100. A positive result means increase, negative means decrease." }
+  "zalgo": [
+    { "question": "What is Zalgo text?", "answer": "Zalgo text (also called glitch text or corrupted text) uses Unicode combining diacritical marks stacked on top of and below regular characters. This creates a chaotic, glitchy appearance that looks like the text is being corrupted or consumed by darkness." },
+    { "question": "Why is it called Zalgo?", "answer": "The name comes from a creepypasta internet meme about 'Zalgo' — a fictional eldritch entity. The corrupted text style became associated with horror and cosmic dread themes online." },
+    { "question": "Can Zalgo text crash apps?", "answer": "Very intense Zalgo text (with many combining marks) can sometimes cause rendering issues in apps that don't handle complex Unicode well. Use the intensity options to control how extreme the effect is." }
   ],
-  "age": [
-    { "question": "How is exact age calculated?", "answer": "Exact age is calculated by finding the difference between your date of birth and today's date, accounting for varying month lengths and leap years." }
+  "strikethrough": [
+    { "question": "How does Unicode strikethrough work?", "answer": "Unicode strikethrough uses the Combining Long Stroke Overlay character (U+0336) placed after each character. This tells the rendering system to draw a line through the preceding character, creating a strikethrough effect without platform-specific formatting." },
+    { "question": "Is this different from regular strikethrough?", "answer": "Yes. Regular strikethrough (like in Word or HTML) uses text formatting that may not survive when copied to other apps. Unicode strikethrough uses combining characters that are part of the text itself, so it works when pasted anywhere." }
   ],
-  "gst": [
-    { "question": "What is GST?", "answer": "GST (Goods and Services Tax) is an indirect tax levied on the supply of goods and services. Common rates in India are 5%, 12%, 18%, and 28%." },
-    { "question": "What is the difference between inclusive and exclusive GST?", "answer": "Exclusive GST means the tax is added on top of the price. Inclusive GST means the price already includes the tax, and you need to extract the base amount." }
+  "bold": [
+    { "question": "How does Unicode bold text work?", "answer": "Unicode bold uses Mathematical Sans-Serif Bold characters (U+1D5D4 onwards). These are separate code points that look like bold versions of regular letters. They're actual characters in Unicode, not formatting — so they display as bold everywhere." },
+    { "question": "Can I use bold text in Instagram bios?", "answer": "Yes! Unicode bold text works perfectly in Instagram bios, captions, and comments. Simply generate your bold text here, copy it, and paste it directly into Instagram." },
+    { "question": "Why doesn't bold work for numbers in some styles?", "answer": "Some Unicode font styles only include letters (A-Z, a-z) and not digits. When a style doesn't have bold number variants, the regular numbers will appear unchanged." }
   ],
-  "tip": [
-    { "question": "How much should I tip?", "answer": "Tipping customs vary by country. In the US, 15-20% is standard for restaurants. In many other countries, tipping is optional or included in the bill." }
-  ],
-  "discount": [
-    { "question": "How do I calculate discount?", "answer": "Discount amount = Original Price × Discount% / 100. Final price = Original Price - Discount Amount." }
-  ],
-  "loan": [
-    { "question": "What factors affect loan interest?", "answer": "The total interest paid depends on the loan amount, interest rate, and loan term. A higher rate or longer term increases total interest, while a larger down payment reduces it." }
-  ],
-  "ppf": [
-    { "question": "What is PPF?", "answer": "PPF (Public Provident Fund) is a long-term savings scheme backed by the Government of India. It offers tax-free returns and has a lock-in period of 15 years, extendable in blocks of 5 years." },
-    { "question": "What is the current PPF interest rate?", "answer": "The PPF interest rate is set by the government each quarter. As of 2024-25, the rate is 7.1% per annum, compounded annually." },
-    { "question": "What is the maximum PPF deposit limit?", "answer": "The maximum deposit in a PPF account is ₹1,50,000 per financial year. The minimum annual deposit is ₹500." },
-    { "question": "Is PPF tax-free?", "answer": "Yes, PPF enjoys EEE (Exempt-Exempt-Exempt) tax status. The deposit qualifies for deduction under Section 80C, the interest earned is tax-free, and the maturity amount is also tax-free." }
-  ],
-  "epf": [
-    { "question": "What is EPF?", "answer": "EPF (Employee Provident Fund) is a retirement savings scheme managed by EPFO where both employee and employer contribute a percentage of basic salary every month." },
-    { "question": "How much does the employer contribute to EPF?", "answer": "The employer contributes 12% of basic salary, but only 3.67% goes to EPF. The remaining 8.33% goes to EPS (Employee Pension Scheme), subject to a salary cap of ₹15,000." },
-    { "question": "What is the current EPF interest rate?", "answer": "The EPF interest rate for 2023-24 is 8.25% per annum. It is declared annually by the EPFO and credited to accounts." }
-  ],
-  "gratuity": [
-    { "question": "Who is eligible for gratuity?", "answer": "Employees who have completed at least 5 years of continuous service with an employer are eligible for gratuity under the Payment of Gratuity Act, 1972." },
-    { "question": "How is gratuity calculated?", "answer": "Gratuity = (15 × Last Drawn Salary × Years of Service) / 26. The salary includes basic pay and dearness allowance. The formula divides by 26 as it represents working days in a month." },
-    { "question": "Is there a maximum limit on gratuity?", "answer": "Yes, the maximum gratuity payable is ₹20 lakh under the Payment of Gratuity Act. Amounts above this may be paid at the employer's discretion." }
-  ],
-  "fd": [
-    { "question": "What is a Fixed Deposit?", "answer": "A Fixed Deposit (FD) is a financial instrument where you deposit a lump sum for a fixed tenure at a predetermined interest rate. It offers guaranteed returns and is considered a safe investment." },
-    { "question": "How does compounding frequency affect FD returns?", "answer": "More frequent compounding (e.g., quarterly vs annually) results in slightly higher returns because interest is calculated on previously earned interest more often." },
-    { "question": "Is FD interest taxable?", "answer": "Yes, FD interest is fully taxable and added to your income. TDS is deducted at 10% if interest exceeds ₹40,000 per year (₹50,000 for senior citizens)." }
-  ],
-  "rd": [
-    { "question": "What is a Recurring Deposit?", "answer": "A Recurring Deposit (RD) is a savings scheme where you deposit a fixed amount every month for a predetermined tenure. Interest is compounded quarterly in most Indian banks." },
-    { "question": "How is RD interest calculated?", "answer": "RD uses quarterly compounding. Each monthly deposit earns interest for its remaining tenure. The total maturity includes all deposits plus accumulated interest." },
-    { "question": "What is the minimum RD tenure?", "answer": "Most banks offer RD with a minimum tenure of 6 months. Maximum tenure varies but typically goes up to 10 years." }
-  ],
-  "nps": [
-    { "question": "What is NPS?", "answer": "NPS (National Pension System) is a voluntary retirement savings scheme regulated by PFRDA. It offers market-linked returns through investments in equity, corporate bonds, and government securities." },
-    { "question": "What is the minimum annuity requirement in NPS?", "answer": "At retirement (age 60), you must invest at least 40% of your NPS corpus in an annuity plan to receive a regular pension. The remaining 60% can be withdrawn as a tax-free lump sum." },
-    { "question": "What tax benefits does NPS offer?", "answer": "NPS contributions qualify for deduction under Section 80CCD(1) within the 80C limit of ₹1.5 lakh, plus an additional ₹50,000 under Section 80CCD(1B)." }
-  ],
-  "income-tax": [
-    { "question": "What is the new tax regime?", "answer": "The new tax regime (default from FY 2023-24) offers lower tax rates with fewer slabs but does not allow most deductions and exemptions like 80C, HRA, etc. It includes a standard deduction of ₹75,000." },
-    { "question": "Which is better — old or new regime?", "answer": "If your total deductions (80C, HRA, 80D, etc.) exceed approximately ₹3-4 lakh, the old regime may save more tax. Otherwise, the new regime with its lower rates is typically better." },
-    { "question": "What is the rebate under Section 87A?", "answer": "Under the new regime, if your taxable income is up to ₹12 lakh (after standard deduction), you get a full rebate and pay zero tax. Under the old regime, the rebate applies up to ₹5 lakh." },
-    { "question": "What is the 4% cess?", "answer": "A Health and Education Cess of 4% is levied on the total tax amount (after rebate). This cess funds healthcare and education initiatives." }
-  ],
-  "hra": [
-    { "question": "What is HRA exemption?", "answer": "HRA (House Rent Allowance) exemption is a tax benefit for salaried employees who pay rent. The exempt amount is the minimum of: actual HRA received, 50%/40% of basic salary (metro/non-metro), or rent paid minus 10% of basic salary." },
-    { "question": "Which cities are considered metro for HRA?", "answer": "For HRA calculation, metro cities are Delhi, Mumbai, Kolkata, and Chennai. Employees in these cities get 50% of basic salary as the HRA limit, while non-metro employees get 40%." },
-    { "question": "Can I claim HRA if I have a home loan?", "answer": "Yes, you can claim both HRA exemption and home loan deductions (Section 24 and Section 80C) simultaneously, provided you live in a rented house in a different city from your owned property." }
-  ],
-  "stamp-duty": [
-    { "question": "What is stamp duty?", "answer": "Stamp duty is a tax levied by state governments on property transactions. It must be paid to legally register the property in your name and varies by state, ranging from 4% to 8% of property value." },
-    { "question": "Is stamp duty different for men and women?", "answer": "Some states like Delhi and Rajasthan offer lower stamp duty rates for women buyers (1-2% less). This calculator uses the standard rates; check your state for gender-based concessions." },
-    { "question": "What are registration charges?", "answer": "Registration charges are fees paid to the sub-registrar office for registering the property sale deed. They are typically 1% of property value, in addition to stamp duty." }
-  ],
-  "gold-price": [
-    { "question": "What is the difference between 24K, 22K, and 18K gold?", "answer": "24K gold is 99.9% pure gold. 22K is 91.6% gold (mixed with metals for durability, used in jewelry). 18K is 75% gold. Higher purity means higher price but softer metal." },
-    { "question": "What are making charges?", "answer": "Making charges cover the cost of crafting raw gold into jewelry. They typically range from 8% to 25% of the gold value, depending on the design complexity and jeweler." },
-    { "question": "How is gold price determined?", "answer": "Gold prices are influenced by international spot prices, currency exchange rates (USD/INR), import duties, and local demand-supply dynamics." }
-  ],
-  "love": [
-    { "question": "How does the love calculator work?", "answer": "The love calculator uses a fun algorithm based on the letters in both names to generate a compatibility score between 1 and 100. The same names always produce the same result." },
-    { "question": "Is the love calculator accurate?", "answer": "The love calculator is meant for entertainment only! Real relationship compatibility depends on communication, shared values, respect, and emotional connection — not name-based algorithms." }
-  ],
-  "numerology": [
-    { "question": "What is Pythagorean numerology?", "answer": "Pythagorean numerology assigns numbers 1-9 to letters of the alphabet (A=1, B=2, ... I=9, J=1, K=2, ...). Your name's letter values are summed and reduced to a single digit to reveal your expression number." },
-    { "question": "What are master numbers?", "answer": "Master numbers (11, 22, 33) are not reduced to a single digit because they carry special significance. 11 represents intuition, 22 represents the master builder, and 33 represents the master teacher." }
-  ],
-  "sleep": [
-    { "question": "What is a sleep cycle?", "answer": "A complete sleep cycle lasts approximately 90 minutes and includes stages of light sleep, deep sleep, and REM (dream) sleep. Most adults need 4 to 6 complete cycles per night." },
-    { "question": "Why is waking between cycles better?", "answer": "Waking up at the end of a sleep cycle (during light sleep) helps you feel refreshed. Waking during deep sleep can cause grogginess and sleep inertia, making you feel tired." },
-    { "question": "How long does it take to fall asleep?", "answer": "The average person takes about 10-20 minutes to fall asleep. This calculator uses 15 minutes as the standard estimate. If you regularly take longer, adjust your bedtime accordingly." }
-  ],
-  "water-intake": [
-    { "question": "How much water should I drink daily?", "answer": "A general guideline is 33 ml per kg of body weight. A 70 kg person should drink about 2.3 liters daily, adjusted upward for exercise, hot weather, and high altitude." },
-    { "question": "Does coffee count toward water intake?", "answer": "Yes, coffee and tea contribute to daily fluid intake. While caffeine has a mild diuretic effect, the water content more than compensates. However, plain water remains the best choice for hydration." }
-  ],
-  "fuel-cost": [
-    { "question": "How is fuel cost calculated?", "answer": "Fuel needed = Distance / Mileage (km/L). Total cost = Fuel needed × Price per liter. For example, a 100 km trip at 15 km/L with fuel at ₹100/L costs ₹667." },
-    { "question": "How can I improve fuel mileage?", "answer": "Maintain steady speeds, avoid rapid acceleration/braking, keep tires properly inflated, reduce idling, and remove unnecessary weight from the vehicle." }
-  ],
-  "electricity-bill": [
-    { "question": "How are electricity units calculated?", "answer": "One unit (kWh) = 1000 watts used for 1 hour. A 100W bulb running for 10 hours consumes 1 unit. Check your meter readings to find monthly consumption." },
-    { "question": "What are fixed charges?", "answer": "Fixed charges (also called meter rent or demand charges) are monthly fees charged regardless of consumption. They cover the cost of maintaining the electricity connection and infrastructure." }
-  ],
-  "rent-vs-buy": [
-    { "question": "Should I rent or buy a house?", "answer": "It depends on factors like how long you plan to stay, local property prices, rental rates, loan interest rates, and property appreciation. Generally, buying makes more sense for stays longer than 7-10 years." },
-    { "question": "What is the break-even point?", "answer": "The break-even point is when the total cost of buying (including down payment, EMI, maintenance) equals the total cost of renting. Beyond this point, buying becomes cheaper." },
-    { "question": "Does property appreciation matter?", "answer": "Yes, property appreciation significantly affects the rent-vs-buy decision. Higher appreciation makes buying more attractive because the property gains value over time, offsetting the higher initial cost." }
-  ],
-  "due-date": [
-    { "question": "What is Naegele's rule?", "answer": "Naegele's rule estimates the due date by adding 280 days (40 weeks) to the first day of the last menstrual period (LMP). It assumes a 28-day menstrual cycle with ovulation on day 14." },
-    { "question": "How accurate is the due date?", "answer": "Only about 5% of babies are born on their exact due date. Most deliveries occur within 2 weeks before or after the estimated date. It serves as a guideline rather than an exact prediction." },
-    { "question": "What are the three trimesters?", "answer": "First trimester: weeks 1-12 (organ formation). Second trimester: weeks 13-26 (growth and movement). Third trimester: weeks 27-40 (final development and preparation for birth)." }
+  "cursive": [
+    { "question": "What makes cursive Unicode text special?", "answer": "Cursive Unicode uses Mathematical Script characters that look like flowing handwritten text. Unlike using a cursive font (which only works where that font is installed), Unicode cursive text carries its styling with it everywhere you paste it." },
+    { "question": "Why do some cursive letters look different from others?", "answer": "A few cursive characters in Unicode have alternative forms or are taken from different blocks. This is because the mathematical script characters weren't originally designed as a consistent 'font' — they were meant for mathematical notation." }
   ]
 }

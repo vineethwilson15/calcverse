@@ -1,0 +1,33 @@
+{{HEAD}}
+<body>
+{{HEADER}}
+<main class="container tool-page">
+  {{BREADCRUMB_HTML}}
+
+  <section class="tool-hero">
+    <h1>{{USE_CASE_TITLE}}</h1>
+  </section>
+
+  <section class="tool-workspace">
+    <div class="input-area">
+      <label for="text-input" class="input-label">Type your text to preview fonts</label>
+      <textarea id="text-input" class="text-input" placeholder="Type your bio or post text here..." rows="3">Your text here</textarea>
+    </div>
+    <div class="font-preview-grid" id="font-preview-grid"></div>
+  </section>
+
+  {{AD_SLOT}}
+
+  <section class="tool-content">
+    {{USE_CASE_CONTENT}}
+  </section>
+
+  {{FAQ_SECTION}}
+  {{RELATED}}
+</main>
+{{FOOTER}}
+<script src="/js/font-engine.js"></script>
+<script src="/js/copy-utils.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>

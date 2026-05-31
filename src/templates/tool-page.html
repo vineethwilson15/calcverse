@@ -1,0 +1,46 @@
+{{HEAD}}
+<body>
+{{HEADER}}
+<main class="container tool-page">
+  {{BREADCRUMB_HTML}}
+
+  <section class="tool-hero">
+    <h1>{{TOOL_NAME}} Generator</h1>
+    <p class="tool-subtitle">{{TOOL_DESCRIPTION}}</p>
+    <div class="preview-badge">{{TOOL_PREVIEW}}</div>
+  </section>
+
+  <section class="tool-workspace">
+    <div class="input-area">
+      <label for="text-input" class="input-label">Type or paste your text</label>
+      <textarea id="text-input" class="text-input" placeholder="Type something here..." rows="3">The quick brown fox jumps over the lazy dog</textarea>
+    </div>
+    <div class="output-area">
+      <div class="output-header">
+        <span class="output-label">{{TOOL_NAME}} Result</span>
+        <button class="copy-btn" id="copy-btn" aria-label="Copy to clipboard">
+          <span class="copy-icon">📋</span>
+          <span class="copy-text">Copy</span>
+        </button>
+      </div>
+      <div class="output-text" id="output-text"></div>
+    </div>
+  </section>
+
+  {{AD_SLOT}}
+
+  <section class="tool-content">
+    <h2>About {{TOOL_NAME}}</h2>
+    <p>{{TOOL_CONTENT}}</p>
+  </section>
+
+  {{FAQ_SECTION}}
+  {{RELATED}}
+</main>
+{{FOOTER}}
+{{TOOL_DATA_SCRIPT}}
+<script src="/js/font-engine.js"></script>
+<script src="/js/copy-utils.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>

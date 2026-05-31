@@ -1,66 +1,140 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
-<head>
 {{HEAD}}
-</head>
 <body>
 {{HEADER}}
-<main class="container">
+<main>
   <section class="hero">
-    <h1 class="hero-title">Free Online Calculators &amp; Unit Converters</h1>
-    <p class="hero-subtitle">Fast, accurate tools for finance, health, math, and everyday calculations. No signup, no tracking — all calculations happen in your browser.</p>
-    <p class="hero-stats">{{CALC_COUNT}} Calculators · {{CONVERTER_COUNT}}+ Unit Conversions</p>
-    <div class="search-bar">
-      <input type="search" class="form-input search-input" id="homepage-search" placeholder="Search calculators &amp; converters..." aria-label="Search tools">
+    <div class="container">
+      <h1 class="hero-title">Fancy Text Generator</h1>
+      <p class="hero-subtitle">Transform your text into stylish Unicode fonts. Copy & paste anywhere — Instagram, Twitter, Discord, and more.</p>
+      <div class="hero-input">
+        <textarea id="hero-input" class="text-input hero-textarea" placeholder="Type your text here..." rows="2">Hello World</textarea>
+      </div>
     </div>
   </section>
 
-  {{CALCULATOR_CARDS}}
+  <section class="font-results container" id="fonts">
+    <h2 class="section-title">All Font Styles</h2>
+    <p class="section-subtitle">Click any result to copy it to your clipboard</p>
+    <div class="font-grid" id="font-grid"></div>
+  </section>
 
-  {{AD_SLOT}}
-
-  <section class="home-section" id="section-converters">
-    <h2>Unit Converters</h2>
-    <div class="card-grid">
-      {{CONVERTER_CATEGORIES}}
+  <section class="container" id="symbols">
+    <h2 class="section-title">Symbol Collections</h2>
+    <p class="section-subtitle">Browse and copy special characters and symbols</p>
+    <div class="category-grid">
+      <a href="/symbols/arrows/" class="category-card">
+        <span class="category-icon">→</span>
+        <span class="category-name">Arrows</span>
+      </a>
+      <a href="/symbols/stars/" class="category-card">
+        <span class="category-icon">★</span>
+        <span class="category-name">Stars</span>
+      </a>
+      <a href="/symbols/hearts/" class="category-card">
+        <span class="category-icon">♥</span>
+        <span class="category-name">Hearts</span>
+      </a>
+      <a href="/symbols/math/" class="category-card">
+        <span class="category-icon">∞</span>
+        <span class="category-name">Math</span>
+      </a>
+      <a href="/symbols/music/" class="category-card">
+        <span class="category-icon">♫</span>
+        <span class="category-name">Music</span>
+      </a>
+      <a href="/symbols/currency/" class="category-card">
+        <span class="category-icon">$</span>
+        <span class="category-name">Currency</span>
+      </a>
+      <a href="/symbols/checkmarks/" class="category-card">
+        <span class="category-icon">✓</span>
+        <span class="category-name">Checkmarks</span>
+      </a>
+      <a href="/symbols/geometric/" class="category-card">
+        <span class="category-icon">◆</span>
+        <span class="category-name">Geometric</span>
+      </a>
+      <a href="/symbols/emoticons/" class="category-card">
+        <span class="category-icon">☺</span>
+        <span class="category-name">Emoticons</span>
+      </a>
+      <a href="/symbols/flowers/" class="category-card">
+        <span class="category-icon">✿</span>
+        <span class="category-name">Flowers</span>
+      </a>
     </div>
+  </section>
+
+  <section class="container" id="tools">
+    <h2 class="section-title">Text Tools</h2>
+    <p class="section-subtitle">Special text transformations and generators</p>
+    <div class="category-grid">
+      <a href="/tools/zalgo/" class="category-card">
+        <span class="category-icon">Z̷͎̀</span>
+        <span class="category-name">Zalgo Text</span>
+      </a>
+      <a href="/tools/vaporwave/" class="category-card">
+        <span class="category-icon">Ｖ</span>
+        <span class="category-name">Vaporwave</span>
+      </a>
+      <a href="/tools/strikethrough/" class="category-card">
+        <span class="category-icon">S̶</span>
+        <span class="category-name">Strikethrough</span>
+      </a>
+      <a href="/tools/upside-down/" class="category-card">
+        <span class="category-icon">ʇ</span>
+        <span class="category-name">Upside Down</span>
+      </a>
+      <a href="/tools/sarcasm/" class="category-card">
+        <span class="category-icon">sArC</span>
+        <span class="category-name">Sarcasm Text</span>
+      </a>
+      <a href="/tools/morse-code/" class="category-card">
+        <span class="category-icon">•−</span>
+        <span class="category-name">Morse Code</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="container" id="use-cases">
+    <h2 class="section-title">Fonts by Platform</h2>
+    <div class="category-grid">
+      <a href="/for/instagram/" class="category-card">
+        <span class="category-name">Instagram Fonts</span>
+      </a>
+      <a href="/for/twitter/" class="category-card">
+        <span class="category-name">Twitter Fonts</span>
+      </a>
+      <a href="/for/discord/" class="category-card">
+        <span class="category-name">Discord Fonts</span>
+      </a>
+      <a href="/for/facebook/" class="category-card">
+        <span class="category-name">Facebook Fonts</span>
+      </a>
+      <a href="/for/tiktok/" class="category-card">
+        <span class="category-name">TikTok Fonts</span>
+      </a>
+      <a href="/for/gaming/" class="category-card">
+        <span class="category-name">Gaming Fonts</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="container seo-content">
+    <h2>About Fontify — Free Fancy Text Generator</h2>
+    <p>Fontify is a free online tool that lets you convert plain text into stylish Unicode fonts and symbols. Unlike regular text formatting which requires specific app support, Unicode text works everywhere — social media bios, messaging apps, emails, documents, and more.</p>
+    <h3>How Does It Work?</h3>
+    <p>Unicode includes thousands of characters beyond the standard alphabet. Many of these look like styled versions of regular letters — bold, italic, cursive, gothic, and many more. Fontify maps your text to these alternate Unicode characters, creating styled text that you can copy and paste anywhere without installing fonts or apps.</p>
+    <h3>Where Can I Use These Fonts?</h3>
+    <p>The styled text works on Instagram bios and captions, Twitter/X posts and bios, Discord messages and usernames, Facebook posts and comments, WhatsApp messages, TikTok bios, YouTube comments, LinkedIn profiles, and any other platform that supports Unicode text.</p>
   </section>
 </main>
 {{FOOTER}}
-<script src="/js/main.js" defer></script>
-<script>
-(function () {
-  var s = document.getElementById('homepage-search');
-  if (!s) return;
-  s.addEventListener('input', function () {
-    var q = this.value.toLowerCase();
-    var sections = document.querySelectorAll('.home-section');
-    for (var i = 0; i < sections.length; i++) {
-      var cards = sections[i].querySelectorAll('.card');
-      var visible = 0;
-      for (var j = 0; j < cards.length; j++) {
-        var show = !q || cards[j].textContent.toLowerCase().indexOf(q) !== -1;
-        cards[j].style.display = show ? '' : 'none';
-        if (show) visible++;
-      }
-      sections[i].style.display = (!q || visible > 0) ? '' : 'none';
-    }
-  });
-})();
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "CalcVerse",
-  "url": "https://calcverse-tools.netlify.app",
-  "description": "Free online calculators and unit converters — EMI, SIP, BMI, PPF, income tax, and 500+ unit conversions.",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://calcverse-tools.netlify.app/?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
-}
-</script>
+<script src="/js/font-engine.js"></script>
+<script src="/js/copy-utils.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/home.js"></script>
 </body>
 </html>

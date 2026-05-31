@@ -1,0 +1,32 @@
+{{HEAD}}
+<body>
+{{HEADER}}
+<main class="container tool-page">
+  {{BREADCRUMB_HTML}}
+
+  <section class="tool-hero">
+    <h1>{{SYMBOL_CATEGORY}}</h1>
+    <p class="tool-subtitle">{{SYMBOL_DESCRIPTION}}</p>
+  </section>
+
+  <section class="tool-workspace">
+    <p class="symbol-instruction">Click any symbol to copy it to your clipboard</p>
+    {{SYMBOLS_GRID}}
+    <div class="toast" id="copy-toast">Copied!</div>
+  </section>
+
+  {{AD_SLOT}}
+
+  <section class="tool-content">
+    <h2>About {{SYMBOL_CATEGORY}}</h2>
+    <p>{{SYMBOL_CONTENT}}</p>
+  </section>
+
+  {{FAQ_SECTION}}
+  {{RELATED}}
+</main>
+{{FOOTER}}
+<script src="/js/copy-utils.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>
