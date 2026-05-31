@@ -20,17 +20,20 @@ jobs:
           fi
       - name: Check generated pages
         run: |
-          CALC_COUNT=$(ls dist/calculator/*/index.html 2>/dev/null | wc -l)
-          CONV_COUNT=$(ls dist/convert/*/index.html 2>/dev/null | wc -l)
-          CAT_COUNT=$(ls dist/category/*/index.html 2>/dev/null | wc -l)
-          echo "Calculators: $CALC_COUNT"
-          echo "Converters: $CONV_COUNT"
-          echo "Categories: $CAT_COUNT"
-          if [ "$CALC_COUNT" -lt 1 ]; then exit 1; fi
-          if [ "$CONV_COUNT" -lt 1 ]; then exit 1; fi
+          FONT_COUNT=$(ls dist/font/*/index.html 2>/dev/null | wc -l)
+          SYMBOL_COUNT=$(ls dist/symbols/*/index.html 2>/dev/null | wc -l)
+          TOOL_COUNT=$(ls dist/tools/*/index.html 2>/dev/null | wc -l)
+          USECASE_COUNT=$(ls dist/for/*/index.html 2>/dev/null | wc -l)
+          echo "Fonts: $FONT_COUNT"
+          echo "Symbols: $SYMBOL_COUNT"
+          echo "Tools: $TOOL_COUNT"
+          echo "Use cases: $USECASE_COUNT"
+          if [ "$FONT_COUNT" -lt 1 ]; then exit 1; fi
+          if [ "$SYMBOL_COUNT" -lt 1 ]; then exit 1; fi
+          if [ "$TOOL_COUNT" -lt 1 ]; then exit 1; fi
       - name: Validate HTML structure
         run: |
-          for f in dist/index.html dist/calculator/emi/index.html; do
+          for f in dist/index.html dist/font/bold/index.html dist/symbols/arrows/index.html; do
             if ! grep -q '<title>' "$f"; then
               echo "ERROR: Missing <title> in $f"
               exit 1
