@@ -413,6 +413,17 @@ function buildStaticPages(partials) {
     var canonicalUrl = SITE_URL + pageUrl;
     var meta = pageMeta[slug] || { title: SITE_NAME, description: '', css: 'tool' };
 
+    var structuredData = '';
+    if (slug === 'index') {
+      structuredData = '<script type="application/ld+json">' + JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        'name': SITE_NAME,
+        'url': SITE_URL + '/',
+        'description': meta.description
+      }) + '</script>';
+    }
+
     var tokens = Object.assign({}, partials, {
       SITE_URL: SITE_URL,
       SITE_NAME: SITE_NAME,
@@ -423,7 +434,7 @@ function buildStaticPages(partials) {
       OG_TITLE: meta.title,
       OG_DESCRIPTION: meta.description,
       OG_IMAGE: SITE_URL + '/assets/og-image.png',
-      STRUCTURED_DATA: '',
+      STRUCTURED_DATA: structuredData,
       PAGE_CSS: meta.css
     });
 
