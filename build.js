@@ -177,7 +177,11 @@ function buildFontPages(fonts, template, partials, faqData, allFonts) {
       method: font.method,
       ranges: font.ranges || null,
       combiningChar: font.combiningChar || null,
-      table: font.table || null
+      table: font.table || null,
+      separator: font.separator || null,
+      wrapLeft: font.wrapLeft || null,
+      wrapRight: font.wrapRight || null,
+      options: font.options || null
     }) + ';</script>';
 
     var tokens = Object.assign({}, partials, {
@@ -295,6 +299,9 @@ function buildToolPages(tools, template, partials, faqData) {
       method: tool.method,
       combiningChar: tool.combiningChar || null,
       table: tool.table || null,
+      separator: tool.separator || null,
+      wrapLeft: tool.wrapLeft || null,
+      wrapRight: tool.wrapRight || null,
       options: tool.options || null
     }) + ';</script>';
 
@@ -352,6 +359,17 @@ function buildUseCasePages(useCases, template, partials, faqData, allFonts) {
       return allFonts.find(function(f) { return f.id === id; });
     }).filter(Boolean);
 
+    var fontsForGrid = recommendedFonts.map(function(f) {
+      return {
+        id: f.id, name: f.name, method: f.method,
+        ranges: f.ranges || null, combiningChar: f.combiningChar || null,
+        table: f.table || null, separator: f.separator || null,
+        wrapLeft: f.wrapLeft || null, wrapRight: f.wrapRight || null,
+        options: f.options || null
+      };
+    });
+    var fontsScript = '<script>window.__USE_CASE_FONTS__=' + JSON.stringify(fontsForGrid) + ';</script>';
+
     var tokens = Object.assign({}, partials, {
       PAGE_TITLE: title,
       META_DESCRIPTION: metaDesc,
@@ -369,6 +387,7 @@ function buildUseCasePages(useCases, template, partials, faqData, allFonts) {
       BREADCRUMB_HTML: buildBreadcrumbHTML(breadcrumbs),
       FAQ_SECTION: buildFaqHTML(faqItems),
       RELATED: buildRelatedHTML(recommendedFonts, ''),
+      FONTS_SCRIPT: fontsScript,
       PAGE_CSS: 'tool'
     });
 

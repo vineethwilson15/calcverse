@@ -26,8 +26,50 @@
   {{RELATED}}
 </main>
 {{FOOTER}}
+{{FONTS_SCRIPT}}
 <script src="/js/font-engine.js"></script>
 <script src="/js/copy-utils.js"></script>
 <script src="/js/main.js"></script>
+<script>
+(function() {
+  var fonts = window.__USE_CASE_FONTS__ || [];
+  var grid = document.getElementById('font-preview-grid');
+  var input = document.getElementById('text-input');
+  if (!grid || !input || !fonts.length) return;
+
+  function renderGrid() {
+    var text = input.value || 'Your text here';
+    grid.innerHTML = '';
+    for (var i = 0; i < fonts.length; i++) {
+      var f = fonts[i];
+      var preview = window.Fontify.transform(text, f);
+      var card = document.createElement('div');
+      card.className = 'font-card';
+      card.setAttribute('data-index', i);
+      card.innerHTML = '<div class="font-card-name">' + f.name + '</div>' +
+        '<div class="font-card-preview">' + preview + '</div>' +
+        '<button class="font-card-copy">Copy</button>';
+      grid.appendChild(card);
+    }
+  }
+
+  input.addEventListener('input', renderGrid);
+  renderGrid();
+
+  grid.addEventListener('click', function(e) {
+    var btn = e.target.closest('.font-card-copy');
+    if (!btn) {
+      var card = e.target.closest('.font-card');
+      if (card) btn = card.querySelector('.font-card-copy');
+      else return;
+    }
+    var card = btn.closest('.font-card');
+    var idx = parseInt(card.getAttribute('data-index'));
+    var text = input.value || 'Your text here';
+    var output = window.Fontify.transform(text, fonts[idx]);
+    window.Fontify.copy(output);
+  });
+})();
+</script>
 </body>
 </html>
