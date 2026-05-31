@@ -55,6 +55,12 @@
 
 /* Font preview grid (use-case pages) */
 .font-preview-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; margin-top: 1rem; }
+.font-card { background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 1rem; cursor: pointer; transition: all var(--transition); position: relative; overflow: hidden; }
+.font-card:hover { border-color: var(--color-primary); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+.font-card-name { font-size: 0.75rem; font-weight: 600; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+.font-card-preview { font-size: 1.1rem; word-break: break-word; line-height: 1.5; color: var(--color-text); }
+.font-card-copy { position: absolute; top: 0.75rem; right: 0.75rem; background: var(--color-primary); color: white; border: none; padding: 0.3rem 0.6rem; border-radius: var(--radius-sm); font-size: 0.7rem; font-weight: 600; cursor: pointer; opacity: 0; transition: opacity var(--transition); }
+.font-card:hover .font-card-copy { opacity: 1; }
 
 @media (max-width: 768px) {
   .tool-hero h1 { font-size: 1.5rem; }
