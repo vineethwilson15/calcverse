@@ -23,7 +23,7 @@
           <span class="copy-text">Copy</span>
         </button>
       </div>
-      <div class="output-text" id="output-text"></div>
+      <div class="output-text" id="output-text" aria-live="polite"></div>
     </div>
   </section>
 
@@ -32,6 +32,8 @@
   <section class="tool-content">
     <h2>About {{TOOL_NAME}}</h2>
     <p>{{TOOL_CONTENT}}</p>
+    <h3>Where to use {{TOOL_NAME}}</h3>
+    <p>{{TOOL_PLATFORMS}}</p>
   </section>
 
   {{FAQ_SECTION}}

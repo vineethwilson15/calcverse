@@ -11,8 +11,14 @@
 
   <section class="tool-workspace">
     <p class="symbol-instruction">Click any symbol to copy it to your clipboard</p>
+    <label class="input-label" for="symbol-search">Search this collection</label>
+    <input id="symbol-search" class="text-input symbol-search" type="search" placeholder="Search by symbol name or Unicode code..." autocomplete="off">
     {{SYMBOLS_GRID}}
     <div class="toast" id="copy-toast">Copied!</div>
+  </section>
+
+  <section class="tool-content symbol-reference-content">
+    {{SYMBOL_REFERENCE}}
   </section>
 
   {{AD_SLOT}}

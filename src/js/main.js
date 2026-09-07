@@ -25,4 +25,17 @@
       menuToggle.classList.toggle('active');
     });
   }
+
+  // Filter symbol collections by their human-readable name or Unicode code.
+  var symbolSearch = document.getElementById('symbol-search');
+  if (symbolSearch) {
+    symbolSearch.addEventListener('input', function () {
+      var query = symbolSearch.value.trim().toLowerCase();
+      var symbols = document.querySelectorAll('.symbol-btn');
+      for (var i = 0; i < symbols.length; i++) {
+        var matches = !query || symbols[i].getAttribute('data-symbol-name').indexOf(query) !== -1 || symbols[i].getAttribute('data-symbol-code').indexOf(query) !== -1;
+        symbols[i].hidden = !matches;
+      }
+    });
+  }
 })();

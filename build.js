@@ -146,22 +146,52 @@ function buildRelatedHTML(items, currentId) {
   return html;
 }
 
+function buildPageLinks(title, items, urlPrefix, currentId, limit) {
+  var filtered = (items || []).filter(function(item) { return item.id !== currentId; }).slice(0, limit || 6);
+  if (filtered.length === 0) return '';
+  var html = '<section class="related-section topic-links">\n<h2>' + title + '</h2>\n<div class="related-grid">\n';
+  for (var i = 0; i < filtered.length; i++) {
+    var item = filtered[i];
+    html += '<a href="' + urlPrefix + item.id + '/" class="related-card">';
+    html += '<span class="related-name">' + item.name + '</span>';
+    if (item.description) html += '<span class="related-description">' + item.description + '</span>';
+    html += '</a>\n';
+  }
+  html += '</div>\n</section>';
+  return html;
+}
+
+function buildIndexHubs(fonts, symbols, tools, useCases) {
+  function links(items, prefix, limit) {
+    return items.slice(0, limit || items.length).map(function(item) {
+      return '<a href="' + prefix + item.id + '/">' + item.name + '</a>';
+    }).join('');
+  }
+  return '<section class="container crawlable-hubs">\n' +
+    '<div class="hub-block"><h2>Popular font generators</h2><div class="hub-links">' + links(fonts.filter(function(font) { return (font.priority || 0) >= 0.85; }), '/font/', 12) + '</div><a class="hub-more" href="#fonts">Browse all font styles</a></div>\n' +
+    '<div class="hub-block"><h2>Text tools</h2><div class="hub-links">' + links(tools, '/tools/') + '</div></div>\n' +
+    '<div class="hub-block"><h2>Symbol collections</h2><div class="hub-links">' + links(symbols, '/symbols/') + '</div></div>\n' +
+    '<div class="hub-block"><h2>Fonts for platforms</h2><div class="hub-links">' + links(useCases, '/for/') + '</div></div>\n' +
+    '</section>';
+}
+
 // ── Page Builders ──
 
-function buildFontPages(fonts, template, partials, faqData, allFonts) {
+function buildFontPages(fonts, template, partials, faqData, allFonts, useCases) {
   var urls = [];
   for (var i = 0; i < fonts.length; i++) {
     var font = fonts[i];
     var pageUrl = '/font/' + font.id + '/';
     var canonicalUrl = SITE_URL + pageUrl;
     var title = font.name + ' Text Generator — Copy & Paste ' + font.name + ' Font | ' + SITE_NAME;
-    var metaDesc = 'Generate ' + font.name.toLowerCase() + ' text (' + font.preview + ') instantly. Copy and paste ' + font.name.toLowerCase() + ' Unicode font for Instagram, Twitter, Discord and more.';
+    var supportedPlatforms = (font.platforms || []).slice(0, 4).join(', ');
+    var metaDesc = 'Generate ' + font.name.toLowerCase() + ' text (' + font.preview + ') instantly. Copy and paste this Unicode style for ' + (supportedPlatforms || 'social media and messaging apps') + '.';
 
     var relatedFonts = (font.relatedFonts || []).map(function(id) {
       return allFonts.find(function(f) { return f.id === id; });
     }).filter(Boolean);
 
-    var faqItems = (faqData[font.id] || faqData['font-default'] || []);
+    var faqItems = faqData[font.id] || [];
 
     var breadcrumbs = [{ name: 'Fonts', url: '/#fonts' }, { name: font.name, url: pageUrl }];
 
@@ -184,6 +214,11 @@ function buildFontPages(fonts, template, partials, faqData, allFonts) {
       options: font.options || null
     }) + ';</script>';
 
+    var platformLinks = (font.platforms || []).map(function(platform) {
+      return useCases.find(function(uc) { return uc.name.toLowerCase() === platform.toLowerCase(); });
+    }).filter(Boolean);
+    var topicLinks = buildPageLinks('Use this style on', platformLinks, '/for/', '', 4);
+
     var tokens = Object.assign({}, partials, {
       PAGE_TITLE: title,
       META_DESCRIPTION: metaDesc,
@@ -201,11 +236,12 @@ function buildFontPages(fonts, template, partials, faqData, allFonts) {
       FONT_CONTENT: font.content || '',
       FONT_TIPS: font.tips || '',
       FONT_PLATFORMS: (font.platforms || []).join(', '),
+      FONT_COMPATIBILITY: 'Unicode styling works in most modern text fields, but support varies by app, device, and screen reader. Use it for visual emphasis rather than information that must be available as plain text, and keep a regular-text version for accessibility.',
       FONT_DATA_SCRIPT: fontDataScript,
       STRUCTURED_DATA: structuredData,
       BREADCRUMB_HTML: buildBreadcrumbHTML(breadcrumbs),
       FAQ_SECTION: buildFaqHTML(faqItems),
-      RELATED: buildRelatedHTML(relatedFonts, font.id),
+      RELATED: buildRelatedHTML(relatedFonts, font.id) + topicLinks,
       PAGE_CSS: 'tool'
     });
 
@@ -228,7 +264,7 @@ function buildSymbolPages(symbols, template, partials, faqData) {
     var title = cat.name + ' — Copy & Paste ' + cat.name + ' | ' + SITE_NAME;
     var metaDesc = 'Browse and copy ' + cat.name.toLowerCase() + '. Click any symbol to copy it to your clipboard instantly. Free online tool.';
 
-    var faqItems = (faqData[cat.id] || faqData['symbols-default'] || []);
+    var faqItems = faqData[cat.id] || [];
     var breadcrumbs = [{ name: 'Symbols', url: '/#symbols' }, { name: cat.name, url: pageUrl }];
 
     var structuredData = '';
@@ -240,9 +276,15 @@ function buildSymbolPages(symbols, template, partials, faqData) {
     var symbolsHTML = '<div class="symbols-grid">\n';
     for (var j = 0; j < cat.symbols.length; j++) {
       var sym = cat.symbols[j];
-      symbolsHTML += '<button class="symbol-btn" data-symbol="' + sym.char + '" title="' + sym.name + ' (' + sym.code + ')">' + sym.char + '</button>\n';
+      symbolsHTML += '<button class="symbol-btn" data-symbol="' + sym.char + '" data-symbol-name="' + sym.name.toLowerCase() + '" data-symbol-code="' + sym.code.toLowerCase() + '" aria-label="Copy ' + sym.name + ', ' + sym.code + '" title="' + sym.name + ' (' + sym.code + ')">' + sym.char + '</button>\n';
     }
     symbolsHTML += '</div>';
+
+    var symbolReferenceHTML = '<div class="symbol-reference"><h3>Symbol names and Unicode codes</h3><div class="symbol-reference-grid">';
+    for (var k = 0; k < cat.symbols.length; k++) {
+      symbolReferenceHTML += '<div class="symbol-reference-item"><span class="symbol-reference-char">' + cat.symbols[k].char + '</span><span><strong>' + cat.symbols[k].name + '</strong><small>' + cat.symbols[k].code + '</small></span></div>';
+    }
+    symbolReferenceHTML += '</div></div>';
 
     var tokens = Object.assign({}, partials, {
       PAGE_TITLE: title,
@@ -257,11 +299,12 @@ function buildSymbolPages(symbols, template, partials, faqData) {
       SYMBOL_CATEGORY: cat.name,
       SYMBOL_DESCRIPTION: cat.description || '',
       SYMBOLS_GRID: symbolsHTML,
+      SYMBOL_REFERENCE: symbolReferenceHTML,
       SYMBOL_CONTENT: cat.content || '',
       STRUCTURED_DATA: structuredData,
       BREADCRUMB_HTML: buildBreadcrumbHTML(breadcrumbs),
       FAQ_SECTION: buildFaqHTML(faqItems),
-      RELATED: '',
+      RELATED: buildPageLinks('Explore more symbol collections', symbols, '/symbols/', cat.id, 6),
       PAGE_CSS: 'tool'
     });
 
@@ -275,16 +318,16 @@ function buildSymbolPages(symbols, template, partials, faqData) {
   return urls;
 }
 
-function buildToolPages(tools, template, partials, faqData) {
+function buildToolPages(tools, template, partials, faqData, fonts) {
   var urls = [];
   for (var i = 0; i < tools.length; i++) {
     var tool = tools[i];
     var pageUrl = '/tools/' + tool.id + '/';
     var canonicalUrl = SITE_URL + pageUrl;
     var title = tool.name + ' Generator — ' + tool.preview + ' | ' + SITE_NAME;
-    var metaDesc = tool.description + '. Generate ' + tool.name.toLowerCase() + ' text online and copy it instantly. Free tool.';
+    var metaDesc = tool.description + '. Generate ' + tool.name.toLowerCase() + ' text online and copy it instantly for ' + ((tool.platforms || []).slice(0, 3).join(', ') || 'social media and messages') + '.';
 
-    var faqItems = (faqData[tool.id] || faqData['tools-default'] || []);
+    var faqItems = faqData[tool.id] || [];
     var breadcrumbs = [{ name: 'Tools', url: '/#tools' }, { name: tool.name, url: pageUrl }];
 
     var structuredData = '';
@@ -320,11 +363,13 @@ function buildToolPages(tools, template, partials, faqData) {
       TOOL_PREVIEW: tool.preview,
       TOOL_DESCRIPTION: tool.description || '',
       TOOL_CONTENT: tool.content || '',
+      TOOL_PLATFORMS: (tool.platforms || []).join(', '),
       TOOL_DATA_SCRIPT: toolDataScript,
       STRUCTURED_DATA: structuredData,
       BREADCRUMB_HTML: buildBreadcrumbHTML(breadcrumbs),
       FAQ_SECTION: buildFaqHTML(faqItems),
-      RELATED: '',
+      RELATED: buildPageLinks('More text tools', tools, '/tools/', tool.id, 6) +
+        buildPageLinks('Try a font style', fonts, '/font/', '', 4),
       PAGE_CSS: 'tool'
     });
 
@@ -347,7 +392,7 @@ function buildUseCasePages(useCases, template, partials, faqData, allFonts) {
     var title = uc.title + ' | ' + SITE_NAME;
     var metaDesc = uc.description;
 
-    var faqItems = (faqData[uc.id] || faqData['use-case-default'] || []);
+    var faqItems = faqData[uc.id] || [];
     var breadcrumbs = [{ name: 'Use Cases', url: '/#use-cases' }, { name: uc.name, url: pageUrl }];
 
     var structuredData = '';
@@ -401,7 +446,7 @@ function buildUseCasePages(useCases, template, partials, faqData, allFonts) {
   return urls;
 }
 
-function buildStaticPages(partials) {
+function buildStaticPages(partials, fonts, symbols, tools, useCases) {
   var pageMeta = {
     'index': {
       title: 'Fontify — Free Fancy Text Generator & Unicode Fonts',
@@ -456,6 +501,7 @@ function buildStaticPages(partials) {
       STRUCTURED_DATA: structuredData,
       PAGE_CSS: meta.css
     });
+    if (slug === 'index') tokens.INDEX_HUBS = buildIndexHubs(fonts, symbols, tools, useCases);
 
     var html = render(content, tokens);
 
@@ -490,14 +536,11 @@ function buildBreadcrumbHTML(segments) {
 // ── SEO Generation ──
 
 function generateSitemap(allUrls) {
-  var today = new Date().toISOString().split('T')[0];
   var xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
   xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
   for (var i = 0; i < allUrls.length; i++) {
     xml += '  <url>\n';
     xml += '    <loc>' + SITE_URL + allUrls[i].url + '</loc>\n';
-    xml += '    <lastmod>' + today + '</lastmod>\n';
-    xml += '    <priority>' + (allUrls[i].priority || 0.5).toFixed(1) + '</priority>\n';
     xml += '  </url>\n';
   }
   xml += '</urlset>';
@@ -545,19 +588,19 @@ function build() {
   var allUrls = [];
 
   console.log('  Generating ' + fonts.length + ' font pages...');
-  allUrls = allUrls.concat(buildFontPages(fonts, fontTemplate, partials, faqData, fonts));
+  allUrls = allUrls.concat(buildFontPages(fonts, fontTemplate, partials, faqData, fonts, useCases));
 
   console.log('  Generating ' + symbols.length + ' symbol pages...');
   allUrls = allUrls.concat(buildSymbolPages(symbols, symbolTemplate, partials, faqData));
 
   console.log('  Generating ' + tools.length + ' tool pages...');
-  allUrls = allUrls.concat(buildToolPages(tools, toolTemplate, partials, faqData));
+  allUrls = allUrls.concat(buildToolPages(tools, toolTemplate, partials, faqData, fonts));
 
   console.log('  Generating ' + useCases.length + ' use-case pages...');
   allUrls = allUrls.concat(buildUseCasePages(useCases, useCaseTemplate, partials, faqData, fonts));
 
   console.log('  Processing static pages...');
-  allUrls = allUrls.concat(buildStaticPages(partials));
+  allUrls = allUrls.concat(buildStaticPages(partials, fonts, symbols, tools, useCases));
 
   console.log('  Generating sitemap (' + allUrls.length + ' URLs)...');
   generateSitemap(allUrls);

@@ -1,7 +1,7 @@
-.hero { padding: 3rem 0 2rem; text-align: center; }
-.hero-title { font-size: 2.5rem; background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 0.5rem; }
+.hero { padding: 4.5rem 0 2.5rem; text-align: center; background: radial-gradient(circle at 50% 0, rgba(73, 179, 163, 0.14), transparent 42%); }
+.hero-title { font-size: clamp(2.25rem, 6vw, 4.5rem); letter-spacing: -0.04em; margin-bottom: 0.5rem; }
 .hero-subtitle { color: var(--color-text-secondary); font-size: 1.1rem; max-width: 600px; margin: 0 auto 2rem; }
-.hero-textarea { width: 100%; max-width: 600px; margin: 0 auto; display: block; }
+.hero-textarea { width: 100%; max-width: 720px; margin: 0 auto; display: block; min-height: 112px; box-shadow: 0 18px 50px rgba(0, 0, 0, 0.24); }
 
 .text-input { width: 100%; padding: 1rem; font-size: 1.1rem; font-family: var(--font-family); background: var(--color-card); color: var(--color-text); border: 2px solid var(--color-border); border-radius: var(--radius-md); resize: vertical; transition: border-color var(--transition); }
 .text-input:focus { border-color: var(--color-primary); outline: none; }
@@ -15,8 +15,8 @@
 .font-card:hover { border-color: var(--color-primary); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
 .font-card-name { font-size: 0.75rem; font-weight: 600; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
 .font-card-preview { font-size: 1.1rem; word-break: break-word; line-height: 1.5; color: var(--color-text); }
-.font-card-copy { position: absolute; top: 0.75rem; right: 0.75rem; background: var(--color-primary); color: white; border: none; padding: 0.3rem 0.6rem; border-radius: var(--radius-sm); font-size: 0.7rem; font-weight: 600; cursor: pointer; opacity: 0; transition: opacity var(--transition); }
-.font-card:hover .font-card-copy { opacity: 1; }
+.font-card-copy { position: absolute; top: 0.75rem; right: 0.75rem; background: var(--color-primary); color: white; border: none; padding: 0.3rem 0.6rem; border-radius: var(--radius-sm); font-size: 0.7rem; font-weight: 600; cursor: pointer; transition: opacity var(--transition), background var(--transition); }
+.font-card-copy:hover { background: var(--color-primary-hover); }
 
 .category-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 3rem; }
 .category-card { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 1.25rem 1rem; background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius-md); text-align: center; transition: all var(--transition); color: var(--color-text); }
