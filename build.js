@@ -164,14 +164,17 @@ function buildPageLinks(title, items, urlPrefix, currentId, limit) {
 function buildIndexHubs(fonts, symbols, tools, useCases) {
   function links(items, prefix, limit) {
     return items.slice(0, limit || items.length).map(function(item) {
-      return '<a href="' + prefix + item.id + '/">' + item.name + '</a>';
+      return '<a href="' + prefix + item.id + '/"><span>' + item.name + '</span><span class="hub-link-arrow" aria-hidden="true">-&gt;</span></a>';
     }).join('');
   }
   return '<section class="container crawlable-hubs">\n' +
-    '<div class="hub-block"><h2>Popular font generators</h2><div class="hub-links">' + links(fonts.filter(function(font) { return (font.priority || 0) >= 0.85; }), '/font/', 12) + '</div><a class="hub-more" href="#fonts">Browse all font styles</a></div>\n' +
-    '<div class="hub-block"><h2>Text tools</h2><div class="hub-links">' + links(tools, '/tools/') + '</div></div>\n' +
-    '<div class="hub-block"><h2>Symbol collections</h2><div class="hub-links">' + links(symbols, '/symbols/') + '</div></div>\n' +
-    '<div class="hub-block"><h2>Fonts for platforms</h2><div class="hub-links">' + links(useCases, '/for/') + '</div></div>\n' +
+    '<div class="hub-intro"><p class="hub-eyebrow">Explore Fontify</p><h2>Find the right text tool</h2><p>Jump straight to a style, converter, symbol collection, or platform guide.</p></div>\n' +
+    '<div class="hub-grid">\n' +
+    '<div class="hub-block"><h3>Popular font generators</h3><p class="hub-description">Copy-ready styles for profiles, posts, and messages.</p><div class="hub-links">' + links(fonts.filter(function(font) { return (font.priority || 0) >= 0.85; }), '/font/', 12) + '</div><a class="hub-more" href="#fonts">Browse all font styles <span aria-hidden="true">-&gt;</span></a></div>\n' +
+    '<div class="hub-block"><h3>Text tools</h3><p class="hub-description">Transform, encode, reverse, and decorate plain text.</p><div class="hub-links">' + links(tools, '/tools/') + '</div></div>\n' +
+    '<div class="hub-block"><h3>Symbol collections</h3><p class="hub-description">Find copyable characters for notes, designs, and chats.</p><div class="hub-links">' + links(symbols, '/symbols/') + '</div></div>\n' +
+    '<div class="hub-block"><h3>Fonts for platforms</h3><p class="hub-description">Start with styles that fit the platform you use.</p><div class="hub-links">' + links(useCases, '/for/') + '</div></div>\n' +
+    '</div>\n' +
     '</section>';
 }
 
